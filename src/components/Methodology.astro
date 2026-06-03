@@ -1,0 +1,64 @@
+---
+const formula = [
+  {
+    icon: "nutrition",
+    step: "01. ОСНОВА",
+    title: "Чистый кишечник",
+    body: "Основа питания каждой клетки и работы иммунитета. Антипаразитарные программы, восстановление микробиоты и висцеральные практики.",
+  },
+  {
+    icon: "water_drop",
+    step: "02. ПОТОК",
+    title: "Кровь и лимфа",
+    body: "Главные жидкости тела питают каждую клетку и выводят продукты обмена. Качество систем зависит от состояния кишечника.",
+  },
+  {
+    icon: "vertical_align_center",
+    step: "03. СТРУКТУРА",
+    title: "Позвоночник",
+    body: "Свободный кровоток и полноценная иннервация. Вакуумная терапия безопасно снимает спазмы и возвращает подвижность.",
+  },
+];
+---
+
+<section class="py-stack-lg bg-surface" id="formula">
+  <div
+    class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center mb-stack-md reveal"
+  >
+    <span
+      class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
+      >Методология</span
+    >
+    <h2 class="font-headline-lg text-headline-lg text-charcoal-deep">
+      Формула здоровья <span class="italic text-primary">IzbaVit</span>
+    </h2>
+    <p class="font-body-lg text-body-lg text-secondary max-w-3xl mx-auto mt-6">
+      Тело — это единая система. Мы работаем последовательно, возвращая телу
+      способность питать и защищать себя изнутри.
+    </p>
+  </div>
+  <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      {
+        formula.map((f) => (
+          <div class="reveal bg-white p-10 rounded-xl border border-outline-variant/30 hover:border-emerald-electric/50 transition-soft group">
+            <div class="w-16 h-16 bg-off-white rounded-full flex items-center justify-center mb-8 group-hover:bg-emerald-electric/10 transition-soft">
+              <span class="material-symbols-outlined text-emerald-electric text-3xl">
+                {f.icon}
+              </span>
+            </div>
+            <span class="font-label-sm text-label-sm text-emerald-electric block mb-4">
+              {f.step}
+            </span>
+            <h3 class="font-headline-md text-headline-md text-charcoal-deep mb-6">
+              {f.title}
+            </h3>
+            <p class="font-body-md text-body-md text-secondary leading-relaxed">
+              {f.body}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

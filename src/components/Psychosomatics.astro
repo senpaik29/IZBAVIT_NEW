@@ -1,0 +1,95 @@
+---
+const leftCards = [
+  {
+    title: "Тело не болеет случайно",
+    body: "Любой симптом — это адаптационная реакция организма. Стрессовое событие запускает реакцию на уровнях: <span class='text-primary font-bold'>психика → мозг → тело</span>. Это биологический механизм выживания.",
+  },
+  {
+    title: "Мир в душе — это физиология",
+    body: "Когда конфликт разрешён — нервная система выходит из режима выживания, тело перестаёт удерживать напряжение, запускаются процессы восстановления.",
+  },
+];
+
+const rightTiles = [
+  {
+    icon: "science",
+    title: "Без мистики",
+    body: "Только ясная логика, понятная телу и уму. Работа на стыке биологии и физиологии.",
+  },
+  {
+    icon: "account_tree",
+    title: "Причинно-следственная связь",
+    body: "Находим конкретное событие — убираем причину напряжения. Симптом перестает быть нужным.",
+  },
+  {
+    icon: "psychology",
+    title: "Биология выживания",
+    body: "Опираемся на доказанные механизмы адаптации тела, а не на абстрактные интерпретации.",
+  },
+];
+---
+
+<section class="py-stack-lg bg-off-white" id="psychosomatics">
+  <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div
+      class="flex flex-col md:flex-row justify-between items-end mb-stack-md gap-gutter reveal"
+    >
+      <div class="max-w-2xl">
+        <span
+          class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
+          >Психосоматика</span
+        >
+        <h2 class="font-headline-lg text-headline-lg text-charcoal-deep">
+          За каждым диагнозом стоит <span class="italic text-primary">событие</span>
+        </h2>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="text-right">
+          <p class="font-bold text-charcoal-deep">Евгений Ерофеев</p>
+          <p class="font-label-sm text-label-sm text-secondary">
+            Специалист по психосоматике
+          </p>
+        </div>
+        <div
+          class="w-16 h-16 bg-emerald-electric rounded-full flex items-center justify-center text-charcoal-deep font-bold text-xl"
+        >
+          ЕЕ
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+      <div class="space-y-gutter">
+        {
+          leftCards.map((c) => (
+            <div class="reveal bg-white p-10 rounded-xl shadow-sm border border-outline-variant/20">
+              <h4 class="font-headline-md text-headline-md text-charcoal-deep mb-4">
+                {c.title}
+              </h4>
+              <p
+                class="font-body-lg text-secondary leading-relaxed"
+                set:html={c.body}
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div class="grid grid-cols-1 gap-gutter">
+        {
+          rightTiles.map((t) => (
+            <div class="reveal flex items-start gap-6 p-8 bg-surface rounded-xl border-l-4 border-emerald-electric">
+              <span class="material-symbols-outlined text-emerald-electric text-3xl shrink-0">
+                {t.icon}
+              </span>
+              <div>
+                <h5 class="font-headline-md text-headline-md text-charcoal-deep mb-2">
+                  {t.title}
+                </h5>
+                <p class="font-body-md text-secondary">{t.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
