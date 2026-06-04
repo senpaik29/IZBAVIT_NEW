@@ -1,4 +1,6 @@
 ---
+import logoSvg from "~/assets/logo.svg?raw";
+
 const links = [
   { href: "#method", label: "Метод" },
   { href: "#program", label: "Программа" },
@@ -14,12 +16,12 @@ const links = [
   <div
     class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-full"
   >
-    <a class="flex items-center text-primary" href="#" aria-label="IzbaVit">
-      <img
-        alt="IzbaVit"
-        class="w-auto object-contain h-20 md:h-24"
-        src="/logo.png"
-      />
+    <a
+      class="flex items-center text-primary [&>span>svg]:h-full [&>span>svg]:w-auto"
+      href="#"
+      aria-label="IzbaVit"
+    >
+      <span class="block h-20 md:h-24" set:html={logoSvg} />
     </a>
     <nav class="hidden md:flex items-center gap-stack-lg">
       {
