@@ -1,48 +1,36 @@
 ---
 const year = new Date().getFullYear();
-const footerLinks = [
-  { href: "#about", label: "О нас" },
-  { href: "#program", label: "Программа" },
-  { href: "#procedures", label: "Процедуры" },
-  { href: "#formats", label: "Форматы" },
-  { href: "#contact", label: "Контакты" },
-];
+const links = ["Privacy Policy", "Terms of Service", "Instagram", "WhatsApp"];
 ---
 
-<footer
-  class="bg-off-white border-t border-outline-variant py-stack-md"
->
+<footer class="bg-surface-container-high border-t border-outline/10">
   <div
-    class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto items-center"
+    class="flex flex-col md:flex-row justify-between items-start md:items-center w-full px-margin-mobile md:px-gutter py-12 max-w-container-max mx-auto"
   >
-    <div>
-      <a class="inline-flex items-center gap-3 mb-6" href="#">
-        <img src="/logo.png" alt="IzbaVit" class="h-12 w-auto" width="48" height="48" />
-        <span
-          class="font-label-sm text-[10px] tracking-[0.2em] text-secondary uppercase font-bold"
-        >Станица Смоленская</span>
-      </a>
-      <p class="font-body-md text-secondary mb-2">
-        VIP-приём Ксении Ерофеевой · Краснодарский край
-      </p>
-      <a class="font-body-md text-charcoal-deep font-bold hover:text-emerald-electric transition-colors" href="tel:+79155889235">
-        +7 915 588-92-35
-      </a>
-      <p class="font-label-sm text-label-sm text-secondary mt-6 uppercase">
-        © {year} IzbaVit. Все права защищены.
+    <div class="mb-8 md:mb-0">
+      <img
+        alt="Ksenia Erofeeva"
+        class="w-auto object-contain mb-4 h-20"
+        src="/logo.png"
+      />
+      <p class="font-body-md text-body-md text-on-surface-variant/60">
+        Holistic Health &amp; VIP Restoration.
       </p>
     </div>
-    <div class="flex flex-wrap gap-8 md:justify-end">
+    <div class="grid grid-cols-2 md:flex gap-x-12 gap-y-4 mb-8 md:mb-0">
       {
-        footerLinks.map((l) => (
+        links.map((l) => (
           <a
-            class="font-label-sm text-label-sm text-secondary hover:text-emerald-electric transition-colors uppercase tracking-widest"
-            href={l.href}
+            class="font-label-caps text-label-caps text-on-surface-variant/60 hover:text-primary transition-colors"
+            href="#"
           >
-            {l.label}
+            {l}
           </a>
         ))
       }
     </div>
+    <p class="font-label-caps text-label-caps text-on-surface-variant/40">
+      © {year} Ksenia Erofeeva. All rights reserved.
+    </p>
   </div>
 </footer>

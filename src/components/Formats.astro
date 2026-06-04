@@ -1,83 +1,83 @@
 ---
-const formats = [
-  {
-    title: "Дневной заезд",
-    desc: "Возможно с питанием или только на процедуры. Идеально для знакомства с методом.",
-    cta: "По запросу",
-  },
-  {
-    title: "Выходные с Ерофеевыми",
-    desc: "3 дня глубокой работы с телом и сопровождением четы Ерофеевых.",
-    cta: "3 дня",
-  },
-  {
-    title: "Неделя здоровья",
-    desc: "Интенсив — 5 дней VIP-комплекса, включая основные процедуры и питание.",
-    cta: "5 дней / 300 000 ₽",
-    highlight: true,
-  },
-  {
-    title: "Глубокий курс",
-    desc: "Полный VIP-комплекс с максимальным результатом и индивидуальным сопровождением.",
-    cta: "10 дней / 500 000 ₽",
-    highlight: true,
-  },
-  {
-    title: "Индивидуальный формат",
-    desc: "Подберём программу и длительность под ваш запрос. Возможна замена или коррекция процедур.",
-    cta: "По запросу",
-  },
-];
 ---
 
-<section class="py-stack-lg bg-surface" id="formats">
+<section class="py-section-gap-lg bg-surface-container-low" id="formats">
   <div
-    class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center mb-stack-md reveal"
+    class="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center mb-16 reveal"
   >
     <span
-      class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
+      class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
       >Форматы и стоимость</span
     >
-    <h2 class="font-headline-lg text-headline-lg text-charcoal-deep">
-      Выбирайте <span class="italic text-primary">свой формат</span> погружения
+    <h2
+      class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface"
+    >
+      Выбирайте свой формат погружения
     </h2>
-    <p class="font-body-lg text-body-lg text-secondary max-w-3xl mx-auto mt-6">
-      VIP-комплекс проходит в индивидуальном формате, с полной концентрацией на
-      одном человеке. Формат подстраивается под вас — с вниманием, глубиной и
-      заботой о результате.
-    </p>
   </div>
-  <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-      {
-        formats.map((f) => (
-          <div
-            class={`reveal p-8 rounded-xl border transition-soft ${
-              f.highlight
-                ? "bg-charcoal-deep text-off-white border-emerald-electric"
-                : "bg-white text-charcoal-deep border-outline-variant/30 hover:border-emerald-electric/50"
-            }`}
-          >
-            <h3 class="font-headline-md text-2xl mb-3">{f.title}</h3>
-            <p
-              class={`font-body-md mb-6 leading-relaxed ${
-                f.highlight ? "text-off-white/80" : "text-secondary"
-              }`}
-            >
-              {f.desc}
-            </p>
-            <span
-              class={`inline-block px-4 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest font-bold ${
-                f.highlight
-                  ? "bg-emerald-electric text-charcoal-deep"
-                  : "bg-off-white text-charcoal-deep"
-              }`}
-            >
-              {f.cta}
-            </span>
-          </div>
-        ))
-      }
+  <div
+    class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 md:grid-cols-3 gap-8"
+  >
+    <div
+      class="reveal bg-surface p-10 rounded-2xl border border-outline/20 flex flex-col justify-between"
+    >
+      <div>
+        <h3 class="font-headline-sm text-headline-sm mb-6 text-on-surface">
+          Дневной заезд
+        </h3>
+        <p class="text-on-surface-variant mb-8">
+          Идеально для знакомства с методом. Возможно с питанием или только на
+          процедуры.
+        </p>
+      </div>
+      <p class="font-bold text-primary uppercase tracking-widest">По запросу</p>
+    </div>
+
+    <div
+      class="reveal bg-surface-container-highest p-10 rounded-2xl border-2 border-primary relative overflow-hidden group"
+    >
+      <div
+        class="absolute top-0 right-0 p-4 bg-primary text-on-primary font-bold text-xs uppercase tracking-tighter rounded-bl-xl"
+      >
+        Популярно
+      </div>
+      <div class="relative z-10 h-full flex flex-col justify-between">
+        <div>
+          <h3 class="font-headline-sm text-headline-sm mb-6 text-on-surface">
+            Неделя здоровья
+          </h3>
+          <p class="text-on-surface-variant mb-8">
+            Интенсив — 5 дней VIP-комплекса, включая основные процедуры и полное
+            питание.
+          </p>
+        </div>
+        <div>
+          <p class="text-tertiary text-sm mb-2">5 дней</p>
+          <p class="font-stat-number text-stat-number text-primary">
+            300 000 ₽
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="reveal bg-surface p-10 rounded-2xl border border-outline/20 flex flex-col justify-between"
+    >
+      <div>
+        <h3 class="font-headline-sm text-headline-sm mb-6 text-on-surface">
+          Глубокий курс
+        </h3>
+        <p class="text-on-surface-variant mb-8">
+          Полный VIP-комплекс с максимальным результатом и индивидуальным
+          сопровождением.
+        </p>
+      </div>
+      <div>
+        <p class="text-tertiary text-sm mb-2">10 дней</p>
+        <p class="font-stat-number text-stat-number text-on-surface">
+          500 000 ₽
+        </p>
+      </div>
     </div>
   </div>
 </section>

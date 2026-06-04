@@ -1,86 +1,90 @@
 ---
 const days = [
   {
-    day: "День 1",
+    num: 1,
     title: "Заезд и знакомство",
     items: [
-      "Заезд и размещение",
-      "Ужин",
-      "Консультация с Ксенией",
-      "Психосоматика с Евгением",
-      "Фитобочка с травами",
+      { label: "Заезд и размещение", time: "14:00" },
+      { label: "Ужин" },
+      { label: "Консультация с Ксенией", featured: true },
+      { label: "Психосоматика с Евгением" },
+      { label: "Фитобочка с травами" },
     ],
   },
   {
-    day: "День 2",
-    title: "Глубокая работа с телом",
+    num: 2,
+    title: "Глубокая работа",
     items: [
-      "ЛФК",
-      "Завтрак",
-      "Висцеральный массаж",
-      "Прогулка",
-      "Обед",
-      "Вакуумная процедура",
-      "Солевая ванна",
-      "Ужин",
+      { label: "ЛФК", time: "08:00" },
+      { label: "Завтрак" },
+      { label: "Висцеральный массаж", featured: true },
+      { label: "Прогулка" },
+      { label: "Обед" },
+      { label: "Вакуумная процедура", featured: true },
+      { label: "Солевая ванна" },
+      { label: "Ужин" },
     ],
   },
   {
-    day: "День 3",
-    title: "Закрепление и выезд",
+    num: 3,
+    title: "Закрепление",
     items: [
-      "ЛФК",
-      "Завтрак",
-      "Процедуры",
-      "Гирудотерапия",
-      "Обед",
-      "Отдых",
-      "Чайная медитация",
-      "Отъезд",
+      { label: "ЛФК" },
+      { label: "Завтрак" },
+      { label: "Гирудотерапия", featured: true },
+      { label: "Обед" },
+      { label: "Чайная медитация" },
+      { label: "Отъезд", time: "16:00" },
     ],
   },
 ];
 ---
 
-<section class="py-stack-lg bg-off-white" id="schedule">
-  <div
-    class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-stack-md reveal"
-  >
-    <div class="max-w-3xl">
+<section class="py-section-gap-lg bg-surface" id="schedule">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+    <div class="mb-16 reveal">
       <span
-        class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
+        class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
         >Расписание</span
       >
-      <h2 class="font-headline-lg text-headline-lg text-charcoal-deep mb-6">
-        Пример расписания <span class="italic text-primary">на 3 дня</span>
+      <h2
+        class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+      >
+        Пример расписания на 3 дня
       </h2>
-      <p class="font-body-lg text-body-lg text-secondary">
-        Так выглядит формат «Выходные с Ерофеевыми». Возможна замена или
-        коррекция процедур исходя из вашего запроса и состояния.
+      <p class="text-on-surface-variant/70">
+        Формат «Выходные с Ерофеевыми». Возможна коррекция процедур под ваш
+        запрос.
       </p>
     </div>
-  </div>
-  <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
       {
         days.map((d) => (
-          <div class="reveal bg-white rounded-xl p-8 border border-outline-variant/30 hover:border-emerald-electric/50 transition-soft">
-            <span class="font-label-sm text-label-sm text-emerald-electric uppercase tracking-widest font-bold">
-              {d.day}
-            </span>
-            <h3 class="font-headline-md text-2xl text-charcoal-deep mt-2 mb-6">
-              {d.title}
-            </h3>
-            <ol class="space-y-3">
+          <div class="reveal">
+            <div class="flex items-center gap-4 mb-8">
+              <span class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">
+                {d.num}
+              </span>
+              <h4 class="font-headline-sm text-headline-sm text-on-surface">
+                {d.title}
+              </h4>
+            </div>
+            <ul class="space-y-4 border-l-2 border-surface-container ml-5 pl-8">
               {d.items.map((it, idx) => (
-                <li class="flex items-start gap-3">
-                  <span class="shrink-0 w-7 h-7 rounded-full bg-emerald-electric/10 text-emerald-electric font-label-sm text-label-sm flex items-center justify-center font-bold">
-                    {idx + 1}
+                <li
+                  class={`flex justify-between items-center py-2 ${idx < d.items.length - 1 ? "border-b border-surface-container/50" : ""} ${it.featured ? "text-on-surface font-bold" : ""}`}
+                >
+                  <span class={it.featured ? "" : "text-on-surface-variant"}>
+                    {it.label}
                   </span>
-                  <span class="font-body-md text-secondary pt-0.5">{it}</span>
+                  {it.time && (
+                    <span class="font-label-caps text-label-caps text-tertiary">
+                      {it.time}
+                    </span>
+                  )}
                 </li>
               ))}
-            </ol>
+            </ul>
           </div>
         ))
       }

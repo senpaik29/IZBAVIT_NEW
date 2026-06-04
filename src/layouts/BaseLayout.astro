@@ -19,7 +19,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#00D97E" />
+    <meta name="theme-color" content="#7d562d" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <title>{title}</title>
 
@@ -27,18 +27,11 @@ const {
       is:inline
       src="https://cdn.tailwindcss.com?plugins=forms,container-queries"
     ></script>
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     />
 
     <script is:inline id="tailwind-config">
@@ -47,115 +40,142 @@ const {
         theme: {
           extend: {
             colors: {
-              "off-white": "#F8F9F8",
-              "accent-gold": "#B8894A",
-              "charcoal-deep": "#121813",
-              "emerald-electric": "#00D97E",
-              "forest-muted": "#3D5440",
-              primary: "#006d3c",
-              "primary-container": "#00d97e",
-              "primary-fixed": "#5affa2",
-              "primary-fixed-dim": "#22e286",
+              background: "#fdfae7",
+              surface: "#fdfae7",
+              "surface-bright": "#fdfae7",
+              "surface-dim": "#dddbc8",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f7f4e1",
+              "surface-container": "#f1eedb",
+              "surface-container-high": "#ece9d6",
+              "surface-container-highest": "#e6e3d0",
+              "surface-variant": "#e6e3d0",
+              "on-surface": "#1c1c11",
+              "on-surface-variant": "#50453b",
+              "on-background": "#1c1c11",
+              "inverse-surface": "#313124",
+              "inverse-on-surface": "#f4f1de",
+              outline: "#82756a",
+              "outline-variant": "#d4c4b7",
+              "surface-tint": "#7d562d",
+              primary: "#7d562d",
               "on-primary": "#ffffff",
-              "on-primary-container": "#005930",
-              "on-primary-fixed": "#00210e",
-              "on-primary-fixed-variant": "#00522c",
-              secondary: "#5a6059",
-              "secondary-container": "#dbe1d9",
-              "secondary-fixed": "#dee4dc",
-              "secondary-fixed-dim": "#c2c8c0",
+              "primary-container": "#d4a373",
+              "on-primary-container": "#5b3912",
+              "inverse-primary": "#f0bd8b",
+              "primary-fixed": "#ffdcbd",
+              "primary-fixed-dim": "#f0bd8b",
+              "on-primary-fixed": "#2c1600",
+              "on-primary-fixed-variant": "#623f18",
+              secondary: "#765a05",
               "on-secondary": "#ffffff",
-              "on-secondary-container": "#5e645e",
-              "on-secondary-fixed": "#171d18",
-              "on-secondary-fixed-variant": "#424842",
-              tertiary: "#7e561c",
-              "tertiary-container": "#e8b471",
-              "tertiary-fixed": "#ffddb5",
-              "tertiary-fixed-dim": "#f2bd79",
+              "secondary-container": "#ffd87c",
+              "on-secondary-container": "#795d08",
+              "secondary-fixed": "#ffdf96",
+              "secondary-fixed-dim": "#e7c268",
+              "on-secondary-fixed": "#251a00",
+              "on-secondary-fixed-variant": "#5a4400",
+              tertiary: "#655d51",
               "on-tertiary": "#ffffff",
-              "on-tertiary-container": "#69450a",
-              "on-tertiary-fixed": "#2a1800",
-              "on-tertiary-fixed-variant": "#633f04",
+              "tertiary-container": "#b4ab9d",
+              "on-tertiary-container": "#464034",
+              "tertiary-fixed": "#ece1d2",
+              "tertiary-fixed-dim": "#cfc5b6",
+              "on-tertiary-fixed": "#201b12",
+              "on-tertiary-fixed-variant": "#4c463b",
               error: "#ba1a1a",
               "error-container": "#ffdad6",
               "on-error": "#ffffff",
               "on-error-container": "#93000a",
-              background: "#f9f9f9",
-              "on-background": "#1a1c1c",
-              surface: "#f9f9f9",
-              "surface-bright": "#f9f9f9",
-              "surface-dim": "#dadada",
-              "surface-tint": "#006d3c",
-              "surface-variant": "#e2e2e2",
-              "surface-container": "#eeeeee",
-              "surface-container-low": "#f3f3f4",
-              "surface-container-lowest": "#ffffff",
-              "surface-container-high": "#e8e8e8",
-              "surface-container-highest": "#e2e2e2",
-              "on-surface": "#1a1c1c",
-              "on-surface-variant": "#3c4a3f",
-              "inverse-surface": "#2f3131",
-              "inverse-on-surface": "#f0f1f1",
-              "inverse-primary": "#22e286",
-              outline: "#6b7b6e",
-              "outline-variant": "#bacbbc",
+              "text-charcoal": "#1c1c11",
+              "gold-muted": "#7d562d",
+              "text-sage": "#655d51",
             },
             borderRadius: {
               DEFAULT: "0.25rem",
               lg: "0.5rem",
               xl: "0.75rem",
+              "2xl": "1rem",
               full: "9999px",
             },
             spacing: {
-              "stack-lg": "80px",
-              "stack-md": "48px",
-              "stack-sm": "24px",
-              base: "8px",
-              gutter: "24px",
-              "margin-mobile": "20px",
+              "container-max": "1200px",
               "margin-desktop": "64px",
-              "container-max": "1280px",
+              "margin-mobile": "16px",
+              "section-gap": "120px",
+              "section-gap-sm": "80px",
+              "section-gap-lg": "120px",
+              gutter: "24px",
+              unit: "8px",
+              "stack-sm": "8px",
+              "stack-md": "16px",
+              "stack-lg": "24px",
             },
             fontFamily: {
-              "display-lg": ["Hanken Grotesk"],
-              "headline-lg": ["Hanken Grotesk"],
-              "headline-lg-mobile": ["Hanken Grotesk"],
-              "headline-md": ["Hanken Grotesk"],
-              "label-sm": ["JetBrains Mono"],
-              "body-md": ["Inter"],
-              "body-lg": ["Inter"],
+              "body-md": ["Plus Jakarta Sans", "Manrope"],
+              "body-lg": ["Plus Jakarta Sans", "Manrope"],
+              "display-hero": ["Manrope"],
+              "display-hero-mobile": ["Manrope"],
+              "headline-lg": ["Manrope"],
+              "headline-lg-mobile": ["Manrope"],
+              "headline-md": ["Manrope"],
+              "headline-sm": ["Manrope"],
+              "label-caps": ["Manrope"],
+              "stat-number": ["Manrope"],
             },
             fontSize: {
-              "display-lg": [
-                "64px",
-                { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "800" },
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "display-hero": [
+                "48px",
+                { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "300" },
+              ],
+              "display-hero-mobile": [
+                "40px",
+                { lineHeight: "1.2", fontWeight: "600" },
               ],
               "headline-lg": [
-                "48px",
-                { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" },
+                "32px",
+                { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "500" },
               ],
               "headline-lg-mobile": [
-                "32px",
-                { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" },
+                "28px",
+                { lineHeight: "36px", fontWeight: "500" },
               ],
-              "headline-md": [
-                "32px",
-                { lineHeight: "1.3", fontWeight: "600" },
-              ],
-              "label-sm": [
+              "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "500" }],
+              "headline-sm": ["24px", { lineHeight: "1.4", fontWeight: "600" }],
+              "label-caps": [
                 "12px",
-                { lineHeight: "1.0", letterSpacing: "0.05em", fontWeight: "500" },
+                { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" },
               ],
-              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
-              "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+              "stat-number": ["40px", { lineHeight: "1", fontWeight: "600" }],
             },
           },
         },
       };
     </script>
+    <style is:inline>
+      body {
+        background-color: #fdfae7;
+        color: #1c1c11;
+        -webkit-font-smoothing: antialiased;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-card {
+        background: rgba(253, 250, 231, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(125, 86, 45, 0.1);
+      }
+    </style>
   </head>
   <body
-    class="bg-off-white text-on-background font-body-md selection:bg-emerald-electric selection:text-charcoal-deep"
+    class="bg-surface text-on-surface font-body-md text-body-md selection:bg-primary selection:text-on-primary"
   >
     <slot />
 
@@ -182,42 +202,10 @@ const {
               parent.classList.contains("space-y-12"))
           ) {
             const idx = Array.from(parent.children).indexOf(el);
-            if (idx !== -1) el.style.transitionDelay = `${idx * 0.15}s`;
+            if (idx !== -1) el.style.transitionDelay = `${idx * 0.1}s`;
           }
           revealObserver.observe(el);
         });
-
-        const parallaxElements = document.querySelectorAll(".parallax-bg");
-        const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-        if (motionQuery.matches) return;
-
-        let ticking = false;
-        const updateParallax = () => {
-          const scrollY = window.scrollY;
-          const wh = window.innerHeight;
-          parallaxElements.forEach((el) => {
-            const rect = el.getBoundingClientRect();
-            const top = rect.top + scrollY;
-            const speed = parseFloat(el.getAttribute("data-parallax-speed")) || 0.1;
-            if (rect.bottom >= 0 && rect.top <= wh) {
-              const relative = scrollY - top + wh / 2;
-              el.style.transform = `translate3d(0, ${relative * speed}px, 0)`;
-            }
-          });
-          ticking = false;
-        };
-
-        window.addEventListener(
-          "scroll",
-          () => {
-            if (!ticking) {
-              window.requestAnimationFrame(updateParallax);
-              ticking = true;
-            }
-          },
-          { passive: true },
-        );
-        updateParallax();
       });
     </script>
   </body>

@@ -1,94 +1,98 @@
 ---
-const leftCards = [
-  {
-    title: "Тело не болеет случайно",
-    body: "Любой симптом — это адаптационная реакция организма. Стрессовое событие запускает реакцию на уровнях: <span class='text-primary font-bold'>психика → мозг → тело</span>. Это биологический механизм выживания.",
-  },
-  {
-    title: "Мир в душе — это физиология",
-    body: "Когда конфликт разрешён, нервная система выходит из режима выживания, тело перестаёт удерживать напряжение, запускаются процессы восстановления.",
-  },
-];
-
-const rightTiles = [
-  {
-    icon: "science",
-    title: "Без мистики",
-    body: "Только ясная логика, понятная телу и уму. Работа на стыке биологии и физиологии.",
-  },
-  {
-    icon: "account_tree",
-    title: "Причинно-следственная связь",
-    body: "Находим конкретное событие — убираем причину напряжения. Симптом перестаёт быть нужным.",
-  },
-  {
-    icon: "psychology",
-    title: "Подготовка к курсу",
-    body: "Подготовительное общение с Евгением проходит перед началом VIP-комплекса.",
-  },
-];
+const evgeniyImg =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBsnQE2SxnvYv28Zd64jWkt39DBi8tnnHZ7lFZ5H7hqrHX7REMj5ODc3s04SiamyC0_vGtO4zg_rRNRjgBx6ZSUUfz0gU_z1oPcWFy4Ju112SMs_A3XLXdYeQ7N235pGFkNChtUza4crFIBC-hlXn2qHFKVKELbAVMaM1YcSghxjYlo-TPJxips6in9Wdb-dY5uJNqn6AZcF-EG5Yje60TTld-S984jN8uUYC49EuVrpabOpMHLMYcuzSq6G7CpQBrDpP19tOARDNo";
 ---
 
-<section class="py-stack-lg bg-surface" id="psychosomatics">
-  <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-    <div
-      class="flex flex-col md:flex-row justify-between items-end mb-stack-md gap-gutter reveal"
-    >
-      <div class="max-w-2xl">
+<section class="py-section-gap-lg bg-surface-container-high overflow-hidden">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="relative z-10 reveal">
         <span
-          class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
+          class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
           >Психосоматика</span
         >
-        <h2 class="font-headline-lg text-headline-lg text-charcoal-deep">
-          За каждым диагнозом стоит <span class="italic text-primary">событие</span>
-        </h2>
-      </div>
-      <div class="flex items-center gap-4">
-        <div class="text-right">
-          <p class="font-bold text-charcoal-deep">Евгений Ерофеев</p>
-          <p class="font-label-sm text-label-sm text-secondary">
-            Специалист по психосоматике
-          </p>
-        </div>
-        <div
-          class="w-16 h-16 bg-emerald-electric rounded-full flex items-center justify-center text-charcoal-deep font-bold text-xl"
+        <h2
+          class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-10"
         >
-          ЕЕ
+          За каждым диагнозом <br />
+          <span class="text-primary italic font-normal">стоит событие</span>
+        </h2>
+        <div class="space-y-12">
+          <div class="border-l-2 border-primary/30 pl-8">
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-4">
+              Тело не болеет случайно
+            </h4>
+            <p class="text-on-surface-variant">
+              Любой симптом — это адаптационная реакция организма. Стрессовое
+              событие запускает цепочку: психика → мозг → тело.
+            </p>
+          </div>
+          <div class="border-l-2 border-primary/30 pl-8">
+            <h4 class="font-headline-sm text-headline-sm text-on-surface mb-4">
+              Мир в душе — это физиология
+            </h4>
+            <p class="text-on-surface-variant">
+              Когда конфликт разрешён, тело перестаёт удерживать напряжение, и
+              запускаются процессы естественного восстановления.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
-      <div class="space-y-gutter">
-        {
-          leftCards.map((c) => (
-            <div class="reveal bg-white p-10 rounded-xl shadow-sm border border-outline-variant/20">
-              <h4 class="font-headline-md text-headline-md text-charcoal-deep mb-4">
-                {c.title}
-              </h4>
-              <p
-                class="font-body-lg text-secondary leading-relaxed"
-                set:html={c.body}
-              />
-            </div>
-          ))
-        }
-      </div>
-      <div class="grid grid-cols-1 gap-gutter">
-        {
-          rightTiles.map((t) => (
-            <div class="reveal flex items-start gap-6 p-8 bg-white rounded-xl border-l-4 border-emerald-electric">
-              <span class="material-symbols-outlined text-emerald-electric text-3xl shrink-0">
-                {t.icon}
-              </span>
+      <div class="flex flex-col gap-8 reveal">
+        <div class="relative">
+          <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
+            <img
+              alt="Евгений Ерофеев"
+              class="w-full h-full object-cover"
+              src={evgeniyImg}
+            />
+          </div>
+          <div
+            class="absolute -bottom-6 -right-6 bg-primary text-on-primary p-6 rounded-xl shadow-lg hidden md:block"
+          >
+            <p class="font-headline-sm text-[20px] mb-1">Евгений Ерофеев</p>
+            <p class="font-label-caps text-[10px] text-on-primary/80">
+              Специалист по психосоматике
+            </p>
+          </div>
+        </div>
+        <div class="bg-surface/50 p-8 rounded-2xl border border-outline/10">
+          <div class="grid gap-6">
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-primary">science</span>
               <div>
-                <h5 class="font-headline-md text-headline-md text-charcoal-deep mb-2">
-                  {t.title}
-                </h5>
-                <p class="font-body-md text-secondary">{t.body}</p>
+                <h5 class="text-on-surface font-bold mb-1">Без мистики</h5>
+                <p class="text-sm text-on-surface-variant">
+                  Только ясная логика, понятная телу и уму.
+                </p>
               </div>
             </div>
-          ))
-        }
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-primary"
+                >account_tree</span
+              >
+              <div>
+                <h5 class="text-on-surface font-bold mb-1">
+                  Причинно-следственная связь
+                </h5>
+                <p class="text-sm text-on-surface-variant">
+                  Находим событие — убираем причину напряжения.
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-primary"
+                >psychology</span
+              >
+              <div>
+                <h5 class="text-on-surface font-bold mb-1">Подготовка к курсу</h5>
+                <p class="text-sm text-on-surface-variant">
+                  Общение с Евгением перед началом VIP-комплекса.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

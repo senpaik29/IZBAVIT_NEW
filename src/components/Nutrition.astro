@@ -1,62 +1,44 @@
 ---
-const categories = [
-  {
-    icon: "egg",
-    title: "Свежее мясо и яйца",
-    body: "Курица, кролик, баранина и фермерские яйца — от проверенных хозяйств станицы.",
-  },
-  {
-    icon: "icecream",
-    title: "Молочная продукция",
-    body: "Козье молоко, сыр, масло, мацони, сметана, творог — каждый день свежее, от местных фермеров.",
-  },
-  {
-    icon: "nutrition",
-    title: "Овощи и фрукты",
-    body: "Сезонные фермерские овощи и фрукты с прилегающих участков Краснодарского края.",
-  },
-  {
-    icon: "local_florist",
-    title: "Мёд и травы",
-    body: "Местный мёд, травяные сборы для чая и фитопроцедур — основа дневного режима гостя.",
-  },
+const items = [
+  { icon: "egg", title: "Мясо и яйца", body: "От проверенных хозяйств станицы." },
+  { icon: "icecream", title: "Молочка", body: "Свежее козье молоко и фермерский сыр." },
+  { icon: "nutrition", title: "Овощи и фрукты", body: "Сезонные продукты Краснодарского края." },
+  { icon: "local_florist", title: "Мёд и травы", body: "Основа дневного режима гостя." },
 ];
 ---
 
-<section class="py-stack-lg bg-off-white" id="nutrition">
-  <div
-    class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
-  >
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-md items-start">
+<section class="py-section-gap-lg bg-surface">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+    <div class="grid md:grid-cols-2 gap-16">
       <div class="reveal">
         <span
-          class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
+          class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
           >Питание</span
         >
-        <h2 class="font-headline-lg text-headline-lg text-charcoal-deep mb-8">
-          Эко-продукция <span class="italic text-primary">от местных фермеров</span>
+        <h2
+          class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8"
+        >
+          Эко-продукция от <br />
+          местных фермеров
         </h2>
-        <p class="font-body-lg text-body-lg text-secondary mb-6 leading-relaxed">
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
           Сбалансированное специальное питание — обязательная часть восстановления.
-          Мы знаем, у кого берём каждую банку молока и каждое яйцо: продукты
-          поступают от хозяйств станицы Смоленская и окрестных ферм.
+          Мы знаем, у кого берём каждую банку молока и каждое яйцо.
         </p>
-        <p class="font-body-lg text-body-lg text-secondary leading-relaxed">
-          Разнообразное меню обсуждается индивидуально — <span class="font-bold text-charcoal-deep">подберём персональное меню под ваш запрос</span>: с учётом аллергий,
-          предпочтений и задач программы.
+        <p class="text-on-surface-variant/70">
+          Разнообразное меню обсуждается индивидуально — подберём персональный
+          рацион с учётом ваших задач и предпочтений.
         </p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {
-          categories.map((c) => (
-            <div class="reveal bg-white p-6 rounded-xl border-l-4 border-emerald-electric shadow-sm">
-              <span class="material-symbols-outlined text-emerald-electric text-3xl mb-3 block">
+          items.map((c) => (
+            <div class="reveal p-8 bg-surface-container rounded-2xl">
+              <span class="material-symbols-outlined text-primary mb-4">
                 {c.icon}
               </span>
-              <h4 class="font-headline-md text-xl text-charcoal-deep mb-2">
-                {c.title}
-              </h4>
-              <p class="font-body-md text-secondary leading-relaxed">{c.body}</p>
+              <h4 class="font-bold text-on-surface mb-2">{c.title}</h4>
+              <p class="text-sm text-on-surface-variant">{c.body}</p>
             </div>
           ))
         }
