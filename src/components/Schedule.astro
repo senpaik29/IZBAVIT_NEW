@@ -1,0 +1,89 @@
+---
+const days = [
+  {
+    day: "День 1",
+    title: "Заезд и знакомство",
+    items: [
+      "Заезд и размещение",
+      "Ужин",
+      "Консультация с Ксенией",
+      "Психосоматика с Евгением",
+      "Фитобочка с травами",
+    ],
+  },
+  {
+    day: "День 2",
+    title: "Глубокая работа с телом",
+    items: [
+      "ЛФК",
+      "Завтрак",
+      "Висцеральный массаж",
+      "Прогулка",
+      "Обед",
+      "Вакуумная процедура",
+      "Солевая ванна",
+      "Ужин",
+    ],
+  },
+  {
+    day: "День 3",
+    title: "Закрепление и выезд",
+    items: [
+      "ЛФК",
+      "Завтрак",
+      "Процедуры",
+      "Гирудотерапия",
+      "Обед",
+      "Отдых",
+      "Чайная медитация",
+      "Отъезд",
+    ],
+  },
+];
+---
+
+<section class="py-stack-lg bg-off-white" id="schedule">
+  <div
+    class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-stack-md reveal"
+  >
+    <div class="max-w-3xl">
+      <span
+        class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
+        >Расписание</span
+      >
+      <h2 class="font-headline-lg text-headline-lg text-charcoal-deep mb-6">
+        Пример расписания <span class="italic text-primary">на 3 дня</span>
+      </h2>
+      <p class="font-body-lg text-body-lg text-secondary">
+        Так выглядит формат «Выходные с Ерофеевыми». Возможна замена или
+        коррекция процедур исходя из вашего запроса и состояния.
+      </p>
+    </div>
+  </div>
+  <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      {
+        days.map((d) => (
+          <div class="reveal bg-white rounded-xl p-8 border border-outline-variant/30 hover:border-emerald-electric/50 transition-soft">
+            <span class="font-label-sm text-label-sm text-emerald-electric uppercase tracking-widest font-bold">
+              {d.day}
+            </span>
+            <h3 class="font-headline-md text-2xl text-charcoal-deep mt-2 mb-6">
+              {d.title}
+            </h3>
+            <ol class="space-y-3">
+              {d.items.map((it, idx) => (
+                <li class="flex items-start gap-3">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-emerald-electric/10 text-emerald-electric font-label-sm text-label-sm flex items-center justify-center font-bold">
+                    {idx + 1}
+                  </span>
+                  <span class="font-body-md text-secondary pt-0.5">{it}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

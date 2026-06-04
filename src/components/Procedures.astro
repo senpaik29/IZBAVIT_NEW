@@ -1,0 +1,94 @@
+---
+const procedures = [
+  {
+    icon: "search",
+    title: "Диагностика",
+    body: "Определяем причину, а не работаем со следствиями. Системный взгляд на тело перед стартом курса.",
+  },
+  {
+    icon: "spa",
+    title: "Массаж гуаша",
+    body: "Скребковая техника на коже и фасциях, активирует лимфоотток, снимает застой в тканях.",
+  },
+  {
+    icon: "face",
+    title: "Букальный массаж",
+    body: "Глубокая работа изнутри ротовой полости с лицевыми мышцами и фасциями.",
+  },
+  {
+    icon: "self_improvement",
+    title: "Нагаечный массаж",
+    body: "Старинная казачья практика — мягкие удары плетью по биологически активным зонам спины.",
+  },
+  {
+    icon: "footprint",
+    title: "Работа со ступнями",
+    body: "Специальный вакуумный аппарат прорабатывает рефлекторные зоны стоп и снимает напряжение всего тела.",
+  },
+  {
+    icon: "biotech",
+    title: "Гирудотерапия",
+    body: "Медицинские пиявки разгружают венозную и лимфатическую систему, улучшают реологию крови.",
+  },
+  {
+    icon: "local_fire_department",
+    title: "Огненный массаж",
+    body: "Тепловая процедура с открытым огнём: глубокий прогрев тканей, активация микроциркуляции.",
+  },
+  {
+    icon: "spa",
+    title: "Медовая ладка",
+    body: "Глубокая ручная техника с мёдом — мощный детокс кожи и подлежащих тканей.",
+  },
+  {
+    icon: "deck",
+    title: "Баня",
+    body: "Русская баня как дополнительная процедура — тепловой стресс и контраст для сосудистой системы.",
+  },
+  {
+    icon: "self_improvement",
+    title: "Медитации и дыхательные практики",
+    body: "Чайные церемонии, направленные дыхательные техники, прогулки по территории.",
+  },
+];
+---
+
+<section class="py-stack-lg bg-surface" id="procedures">
+  <div
+    class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-stack-md reveal"
+  >
+    <div class="max-w-3xl">
+      <span
+        class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
+        >Процедуры</span
+      >
+      <h2 class="font-headline-lg text-headline-lg text-charcoal-deep mb-6">
+        Дополнительные техники <span class="italic text-primary">по запросу</span>
+      </h2>
+      <p class="font-body-lg text-body-lg text-secondary">
+        Помимо основного VIP-комплекса, мы подбираем дополнительные процедуры
+        под индивидуальный запрос гостя. Каждая техника усиливает результат и
+        точечно работает с конкретными состояниями тела.
+      </p>
+    </div>
+  </div>
+  <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+      {
+        procedures.map((p) => (
+          <div class="reveal bg-white p-8 rounded-xl border border-outline-variant/30 hover:border-emerald-electric/50 transition-soft">
+            <span class="material-symbols-outlined text-emerald-electric text-3xl mb-4 block">
+              {p.icon}
+            </span>
+            <h3 class="font-headline-md text-xl text-charcoal-deep mb-3">
+              {p.title}
+            </h3>
+            <p class="font-body-md text-body-md text-secondary leading-relaxed">
+              {p.body}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

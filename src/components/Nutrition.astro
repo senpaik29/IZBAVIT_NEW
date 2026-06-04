@@ -1,0 +1,66 @@
+---
+const categories = [
+  {
+    icon: "egg",
+    title: "Свежее мясо и яйца",
+    body: "Курица, кролик, баранина и фермерские яйца — от проверенных хозяйств станицы.",
+  },
+  {
+    icon: "icecream",
+    title: "Молочная продукция",
+    body: "Козье молоко, сыр, масло, мацони, сметана, творог — каждый день свежее, от местных фермеров.",
+  },
+  {
+    icon: "nutrition",
+    title: "Овощи и фрукты",
+    body: "Сезонные фермерские овощи и фрукты с прилегающих участков Краснодарского края.",
+  },
+  {
+    icon: "local_florist",
+    title: "Мёд и травы",
+    body: "Местный мёд, травяные сборы для чая и фитопроцедур — основа дневного режима гостя.",
+  },
+];
+---
+
+<section class="py-stack-lg bg-off-white" id="nutrition">
+  <div
+    class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
+  >
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-md items-start">
+      <div class="reveal">
+        <span
+          class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
+          >Питание</span
+        >
+        <h2 class="font-headline-lg text-headline-lg text-charcoal-deep mb-8">
+          Эко-продукция <span class="italic text-primary">от местных фермеров</span>
+        </h2>
+        <p class="font-body-lg text-body-lg text-secondary mb-6 leading-relaxed">
+          Сбалансированное специальное питание — обязательная часть восстановления.
+          Мы знаем, у кого берём каждую банку молока и каждое яйцо: продукты
+          поступают от хозяйств станицы Смоленская и окрестных ферм.
+        </p>
+        <p class="font-body-lg text-body-lg text-secondary leading-relaxed">
+          Разнообразное меню обсуждается индивидуально — <span class="font-bold text-charcoal-deep">подберём персональное меню под ваш запрос</span>: с учётом аллергий,
+          предпочтений и задач программы.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+        {
+          categories.map((c) => (
+            <div class="reveal bg-white p-6 rounded-xl border-l-4 border-emerald-electric shadow-sm">
+              <span class="material-symbols-outlined text-emerald-electric text-3xl mb-3 block">
+                {c.icon}
+              </span>
+              <h4 class="font-headline-md text-xl text-charcoal-deep mb-2">
+                {c.title}
+              </h4>
+              <p class="font-body-md text-secondary leading-relaxed">{c.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

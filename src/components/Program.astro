@@ -1,0 +1,120 @@
+---
+const stages = [
+  {
+    label: "Подготовительный этап",
+    duration: "",
+    title: "Подготовительное общение",
+    body: "Перед началом курса проводится индивидуальная беседа со специалистом по психосоматике — Евгением Ерофеевым. Это помогает учесть психоэмоциональный фон и биологические реакции тела.",
+  },
+  {
+    label: "1 этап",
+    duration: "45 мин",
+    title: "Фитобочка с травами",
+    body: "Глубокий, но мягкий прогрев с травяными сборами активирует микроциркуляцию, снижает спазмы и поддерживает естественные процессы очищения. Подготавливает тело и усиливает эффект всех последующих этапов.",
+  },
+  {
+    label: "2 этап",
+    duration: "45 мин",
+    title: "Висцеральная работа",
+    body: "Глубокая ручная работа с животом, кишечником, органами брюшной полости и диафрагмой. Освобождает центральную зону тела, улучшает дыхание, кровоснабжение и лимфоотток, восстанавливая подвижность органов.",
+  },
+  {
+    label: "3 этап",
+    duration: "60 мин",
+    title: "Вакуумная терапия по авторской методике",
+    body: "Поэтапная работа с телом с помощью вакуума: слой за слоем прорабатываются мышцы и фасции, от поверхностных к глубоким. Снимаются зажимы в каждой мышечной группе, активизируется крово- и лимфообращение, тело «расплетается» и освобождается.",
+  },
+  {
+    label: "4 этап",
+    duration: "60 мин",
+    title: "Солевое фурако с травами",
+    body: "Тёплый солевой раствор с травами помогает телу мягко распределить и интегрировать эффект глубокой вакуумной терапии. Через тепло и аудиосопровождение нервная система глубоко расслабляется. Аудиосопровождение — по желанию.",
+  },
+  {
+    label: "5 этап",
+    duration: "30 мин",
+    title: "Миофасциальная работа с горячими гречневыми мешочками",
+    body: "Завершающий этап, где мастер мягко «дотягивает» и выравнивает тело руками. С теплом гречневых мешочков уходит остаточная зажатость, появляется ощущение полного расслабления и комфорта.",
+  },
+  {
+    label: "Заключительный этап",
+    duration: "",
+    title: "Завершение и восстановление",
+    body: "После процедур предусмотрено время для отдыха: можно спокойно посидеть, восстановиться, выпить чай или кофе и мягко вернуться в привычное состояние.",
+  },
+  {
+    label: "Вечерний блок",
+    duration: "",
+    title: "Специализированное ЛФК",
+    body: "Индивидуальное занятие, которое помогает сохранить и закрепить результат после комплекса. Мягкое включение мышц учит тело удерживать новое положение без возврата в спазм и перегрузку.",
+  },
+];
+
+const spineImg =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuCFGG966U9LORD77jD-65fNBC9xNFG76rKin5i2NrnMKoV7-7u1Z9DpeajmmsDBfOf7M8UwgHmIgekWsC0XkeQYBccp2jOCpipy3uNZtbazjBLsA-aCtLfLTGrCYhbdVZ3w_FwwDynbMxBpyrFC47WF-FAh-HUR2NAmtN3orL2oHguAaxoUmWatdHNxUgXktyeRBfmWj_Ee--iL0k7LibJ3y8F-ipiACeEe3hkD9LZDgo4i94rvVdjNLLckq9yQmzXzEgfIauvkrD8";
+---
+
+<section
+  class="relative py-stack-lg bg-charcoal-deep text-off-white overflow-hidden"
+  id="program"
+>
+  <div class="absolute inset-0 opacity-10 flex items-center justify-center">
+    <img
+      alt=""
+      class="w-full h-full object-contain parallax-bg"
+      data-parallax-speed="0.1"
+      src={spineImg}
+      style="transform: translate3d(0px, 0px, 0px);"
+    />
+  </div>
+  <div
+    class="relative px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto z-10"
+  >
+    <div class="max-w-3xl mb-stack-md reveal">
+      <span
+        class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
+        >Программа приёма</span
+      >
+      <h2 class="font-headline-lg text-headline-lg mb-6">
+        VIP-комплекс — это не разовая процедура,<br />
+        а <span class="text-emerald-electric italic">выстроенный процесс</span>
+      </h2>
+      <p class="font-body-lg text-off-white/70">
+        Мы последовательно подготавливаем тело, снимаем поверхностные и
+        глубокие зажимы, запускаем детокс и восстановление — чтобы каждая
+        следующая техника работала максимально эффективно и безопасно.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+      {
+        stages.map((s) => (
+          <div class="reveal glass-nav rounded-xl p-8 border border-emerald-electric/20 hover:border-emerald-electric/60 transition-soft">
+            <div class="flex items-center gap-3 mb-4 flex-wrap">
+              <span class="font-label-sm text-label-sm text-emerald-electric uppercase tracking-widest">
+                {s.label}
+              </span>
+              {s.duration && (
+                <span class="font-label-sm text-label-sm text-charcoal-deep px-2 py-1 bg-emerald-electric/30 rounded-full">
+                  {s.duration}
+                </span>
+              )}
+            </div>
+            <h3 class="font-headline-md text-2xl text-charcoal-deep mb-3">
+              {s.title}
+            </h3>
+            <p class="font-body-md text-secondary leading-relaxed">{s.body}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-stack-md max-w-3xl reveal">
+      <p class="font-body-lg text-off-white/70 italic">
+        В процессе работы мастер может добавлять дополнительные техники, если
+        это необходимо для усиления эффекта и более точной работы с состоянием
+        тела.
+      </p>
+    </div>
+  </div>
+</section>

@@ -6,7 +6,7 @@ const leftCards = [
   },
   {
     title: "Мир в душе — это физиология",
-    body: "Когда конфликт разрешён — нервная система выходит из режима выживания, тело перестаёт удерживать напряжение, запускаются процессы восстановления.",
+    body: "Когда конфликт разрешён, нервная система выходит из режима выживания, тело перестаёт удерживать напряжение, запускаются процессы восстановления.",
   },
 ];
 
@@ -19,17 +19,17 @@ const rightTiles = [
   {
     icon: "account_tree",
     title: "Причинно-следственная связь",
-    body: "Находим конкретное событие — убираем причину напряжения. Симптом перестает быть нужным.",
+    body: "Находим конкретное событие — убираем причину напряжения. Симптом перестаёт быть нужным.",
   },
   {
     icon: "psychology",
-    title: "Биология выживания",
-    body: "Опираемся на доказанные механизмы адаптации тела, а не на абстрактные интерпретации.",
+    title: "Подготовка к курсу",
+    body: "Подготовительное общение с Евгением проходит перед началом VIP-комплекса.",
   },
 ];
 ---
 
-<section class="py-stack-lg bg-off-white" id="psychosomatics">
+<section class="py-stack-lg bg-surface" id="psychosomatics">
   <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
     <div
       class="flex flex-col md:flex-row justify-between items-end mb-stack-md gap-gutter reveal"
@@ -76,7 +76,7 @@ const rightTiles = [
       <div class="grid grid-cols-1 gap-gutter">
         {
           rightTiles.map((t) => (
-            <div class="reveal flex items-start gap-6 p-8 bg-surface rounded-xl border-l-4 border-emerald-electric">
+            <div class="reveal flex items-start gap-6 p-8 bg-white rounded-xl border-l-4 border-emerald-electric">
               <span class="material-symbols-outlined text-emerald-electric text-3xl shrink-0">
                 {t.icon}
               </span>

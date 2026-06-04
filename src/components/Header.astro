@@ -1,9 +1,10 @@
 ---
 const links = [
-  { href: "#recovery", label: "Восстановление" },
-  { href: "#formula", label: "Формула" },
-  { href: "#spine", label: "Позвоночник" },
-  { href: "#psychosomatics", label: "Психосоматика" },
+  { href: "#about", label: "О нас" },
+  { href: "#balance", label: "Метод" },
+  { href: "#program", label: "Программа" },
+  { href: "#procedures", label: "Процедуры" },
+  { href: "#formats", label: "Форматы" },
 ];
 ---
 
@@ -13,31 +14,17 @@ const links = [
   <div
     class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
   >
-    <a class="flex items-center gap-3" href="#" aria-label="IzbaVit — Vitality Lab">
-      <svg
-        class="h-12 w-12"
-        viewBox="0 0 48 48"
-        fill="none"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="24" cy="24" r="23" fill="#121813" />
-        <path
-          d="M16 14 V34 M22 14 L27 34 L32 14"
-          stroke="#00D97E"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-      <div class="flex flex-col -space-y-1">
-        <span
-          class="font-headline-md text-3xl font-extrabold text-charcoal-deep leading-none"
-        >IzbaVit</span>
-        <span
-          class="font-label-sm text-[10px] tracking-[0.2em] text-secondary uppercase font-bold"
-        >Vitality Lab</span>
-      </div>
+    <a class="flex items-center gap-3" href="#" aria-label="IzbaVit — Станица Смоленская">
+      <img
+        src="/logo.png"
+        alt="IzbaVit"
+        class="h-14 w-auto"
+        width="56"
+        height="56"
+      />
+      <span
+        class="hidden sm:block font-label-sm text-[10px] tracking-[0.2em] text-secondary uppercase font-bold"
+      >Станица Смоленская</span>
     </a>
     <div class="hidden md:flex items-center gap-8">
       {
@@ -55,7 +42,7 @@ const links = [
       class="bg-emerald-electric text-charcoal-deep font-bold px-6 py-3 rounded-full vibrating-button transition-soft hover:opacity-90"
       href="#contact"
     >
-      Начать восстановление
+      Записаться
     </a>
   </div>
 </nav>

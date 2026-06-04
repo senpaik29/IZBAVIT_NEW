@@ -5,3 +5,9 @@ dist/
 .env.production
 .DS_Store
 *.log
+
+# Source materials & working assets (not part of shipped site)
+/Izbavit.pdf
+/description.odt
+/logo.png
+/Photo/

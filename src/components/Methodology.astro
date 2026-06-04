@@ -1,60 +1,67 @@
 ---
-const formula = [
-  {
-    icon: "nutrition",
-    step: "01. ОСНОВА",
-    title: "Чистый кишечник",
-    body: "Основа питания каждой клетки и работы иммунитета. Антипаразитарные программы, восстановление микробиоты и висцеральные практики.",
-  },
+const systems = [
   {
     icon: "water_drop",
-    step: "02. ПОТОК",
-    title: "Кровь и лимфа",
-    body: "Главные жидкости тела питают каждую клетку и выводят продукты обмена. Качество систем зависит от состояния кишечника.",
+    step: "01",
+    title: "Лимфатическая система",
+    body: "Свободный лимфоток — главное условие очищения тканей и работы иммунитета.",
+  },
+  {
+    icon: "favorite",
+    step: "02",
+    title: "Кровообращение и микроциркуляция",
+    body: "Питание каждой клетки и вывод продуктов обмена через капиллярную сеть.",
+  },
+  {
+    icon: "fitness_center",
+    step: "03",
+    title: "Мышечно-фасциальные цепи",
+    body: "Мышцы выходят из хронического гипертонуса, фасции возвращают эластичность и скольжение.",
   },
   {
     icon: "vertical_align_center",
-    step: "03. СТРУКТУРА",
-    title: "Позвоночник",
-    body: "Свободный кровоток и полноценная иннервация. Вакуумная терапия безопасно снимает спазмы и возвращает подвижность.",
+    step: "04",
+    title: "Костно-суставная структура и позвоночник",
+    body: "Позвоночник освобождается от избыточного давления, органы получают адекватную иннервацию.",
   },
 ];
 ---
 
-<section class="py-stack-lg bg-surface" id="formula">
+<section class="py-stack-lg bg-surface" id="balance">
   <div
     class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center mb-stack-md reveal"
   >
     <span
       class="font-label-sm text-label-sm text-emerald-electric mb-4 block uppercase font-bold"
-      >Методология</span
+      >Метод</span
     >
     <h2 class="font-headline-lg text-headline-lg text-charcoal-deep">
-      Формула здоровья <span class="italic text-primary">IzbaVit</span>
+      Что приводим в <span class="italic text-primary">физиологический баланс</span>
     </h2>
     <p class="font-body-lg text-body-lg text-secondary max-w-3xl mx-auto mt-6">
-      Тело — это единая система. Мы работаем последовательно, возвращая телу
-      способность питать и защищать себя изнутри.
+      Мы работаем не с симптомом, а с базовыми системами. Через нормализацию
+      этих уровней восстанавливается функция внутренних органов, гормональная
+      регуляция, работа нервной системы и обменные процессы.
     </p>
   </div>
   <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
       {
-        formula.map((f) => (
-          <div class="reveal bg-white p-10 rounded-xl border border-outline-variant/30 hover:border-emerald-electric/50 transition-soft group">
-            <div class="w-16 h-16 bg-off-white rounded-full flex items-center justify-center mb-8 group-hover:bg-emerald-electric/10 transition-soft">
+        systems.map((s) => (
+          <div class="reveal bg-white p-8 rounded-xl border border-outline-variant/30 hover:border-emerald-electric/50 transition-soft group">
+            <div class="w-14 h-14 bg-off-white rounded-full flex items-center justify-center mb-6 group-hover:bg-emerald-electric/10 transition-soft">
               <span class="material-symbols-outlined text-emerald-electric text-3xl">
-                {f.icon}
+                {s.icon}
               </span>
             </div>
-            <span class="font-label-sm text-label-sm text-emerald-electric block mb-4">
-              {f.step}
+            <span class="font-label-sm text-label-sm text-emerald-electric block mb-3">
+              {s.step}
             </span>
-            <h3 class="font-headline-md text-headline-md text-charcoal-deep mb-6">
-              {f.title}
+            <h3 class="font-headline-md text-2xl text-charcoal-deep mb-4">
+              {s.title}
             </h3>
             <p class="font-body-md text-body-md text-secondary leading-relaxed">
-              {f.body}
+              {s.body}
             </p>
           </div>
         ))
