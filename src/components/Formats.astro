@@ -1,4 +1,35 @@
 ---
+const formats = [
+  {
+    title: "Отдельные процедуры",
+    body: "Приезжайте только на сеансы — мы составляем программу, вы приезжаете на конкретные процедуры.",
+    cta: "По запросу",
+  },
+  {
+    title: "Дневной заезд",
+    body: "Целый день с нами: процедуры, отдых, обед из фермерских продуктов и напитки в течение дня — всё включено. Глубокое переключение без ночёвки.",
+    cta: "По запросу",
+  },
+  {
+    title: "Выходные с Ерофеевыми",
+    body: "Формат «перезагрузка за уикенд». Три дня полного пансиона: проживание, питание, ежедневные процедуры и практики. Идеально, чтобы выдохнуть и запустить процесс восстановления.",
+    cta: "3 дня",
+    days: "3 дня",
+    highlight: false,
+  },
+  {
+    title: "VIP-комплекс",
+    body: "Интенсив для системной трансформации. Глубокое погружение с ежедневной работой по телу и психике, полный пансион, баня, прогулки, медитации.",
+    days: "7–10 дней",
+    highlight: true,
+    badge: "Популярно",
+  },
+  {
+    title: "Индивидуальный формат",
+    body: "Не вписываетесь в стандартные рамки? Соберём программу специально под вас — по длительности, интенсивности, набору процедур и режиму питания.",
+    cta: "Индивидуально",
+  },
+];
 ---
 
 <section class="py-section-gap-lg bg-surface-container-low" id="formats">
@@ -7,77 +38,69 @@
   >
     <span
       class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
-      >Форматы и стоимость</span
+      >Форматы пребывания</span
     >
     <h2
-      class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface"
+      class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
     >
-      Выбирайте свой формат погружения
+      От точечного визита <br />
+      до полного <span class="italic font-normal text-primary">погружения</span>
     </h2>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+      У каждого свой ритм, возможности и запрос. Любой формат начинается
+      с психосоматического разбора и консультации, на которой мы определяем
+      оптимальную стратегию именно для вас.
+    </p>
   </div>
+
   <div
-    class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 md:grid-cols-3 gap-8"
+    class="max-w-container-max mx-auto px-margin-mobile md:px-gutter grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
   >
-    <div
-      class="reveal bg-surface p-10 rounded-2xl border border-outline/20 flex flex-col justify-between"
-    >
-      <div>
-        <h3 class="font-headline-sm text-headline-sm mb-6 text-on-surface">
-          Дневной заезд
-        </h3>
-        <p class="text-on-surface-variant mb-8">
-          Идеально для знакомства с методом. Возможно с питанием или только на
-          процедуры.
-        </p>
-      </div>
-      <p class="font-bold text-primary uppercase tracking-widest">По запросу</p>
-    </div>
-
-    <div
-      class="reveal bg-surface-container-highest p-10 rounded-2xl border-2 border-primary relative overflow-hidden group"
-    >
-      <div
-        class="absolute top-0 right-0 p-4 bg-primary text-on-primary font-bold text-xs uppercase tracking-tighter rounded-bl-xl"
-      >
-        Популярно
-      </div>
-      <div class="relative z-10 h-full flex flex-col justify-between">
-        <div>
-          <h3 class="font-headline-sm text-headline-sm mb-6 text-on-surface">
-            Неделя здоровья
-          </h3>
-          <p class="text-on-surface-variant mb-8">
-            Интенсив — 5 дней VIP-комплекса, включая основные процедуры и полное
-            питание.
-          </p>
+    {
+      formats.map((f) => (
+        <div
+          class={`reveal p-10 rounded-2xl flex flex-col justify-between relative overflow-hidden transition-all ${
+            f.highlight
+              ? "bg-surface-container-highest border-2 border-primary"
+              : "bg-surface border border-outline/20"
+          }`}
+        >
+          {f.badge && (
+            <div class="absolute top-0 right-0 p-4 bg-primary text-on-primary font-bold text-xs uppercase tracking-tighter rounded-bl-xl">
+              {f.badge}
+            </div>
+          )}
+          <div>
+            <h3 class="font-headline-sm text-headline-sm mb-6 text-on-surface">
+              {f.title}
+            </h3>
+            <p class="text-on-surface-variant mb-8 leading-relaxed">
+              {f.body}
+            </p>
+          </div>
+          <div>
+            {f.days ? (
+              <p class="text-tertiary text-sm mb-2">{f.days}</p>
+            ) : null}
+            <p
+              class={`${
+                f.days
+                  ? "font-stat-number text-stat-number text-primary"
+                  : "font-bold text-primary uppercase tracking-widest"
+              }`}
+            >
+              {f.cta ?? "По запросу"}
+            </p>
+          </div>
         </div>
-        <div>
-          <p class="text-tertiary text-sm mb-2">5 дней</p>
-          <p class="font-stat-number text-stat-number text-primary">
-            300 000 ₽
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="reveal bg-surface p-10 rounded-2xl border border-outline/20 flex flex-col justify-between"
-    >
-      <div>
-        <h3 class="font-headline-sm text-headline-sm mb-6 text-on-surface">
-          Глубокий курс
-        </h3>
-        <p class="text-on-surface-variant mb-8">
-          Полный VIP-комплекс с максимальным результатом и индивидуальным
-          сопровождением.
-        </p>
-      </div>
-      <div>
-        <p class="text-tertiary text-sm mb-2">10 дней</p>
-        <p class="font-stat-number text-stat-number text-on-surface">
-          500 000 ₽
-        </p>
-      </div>
-    </div>
+      ))
+    }
   </div>
+
+  <p
+    class="mt-12 text-center text-on-surface-variant max-w-2xl mx-auto reveal"
+  >
+    Стоимость зависит от формата и наполнения — обсуждается на консультации
+    после психосоматического разбора.
+  </p>
 </section>

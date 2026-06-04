@@ -1,0 +1,65 @@
+---
+// Quotes пока заглушки — реальные отзывы можно добавить из исходного PDF
+// или подключить виджет (Яндекс.Карты, Прокатиться, и т.д.).
+const testimonials = [
+  {
+    quote:
+      "После трёх дней в станице ушли боли в пояснице, с которыми я жила несколько лет. Сначала была психосоматическая беседа, потом мягкая работа с телом — и тело само развернулось.",
+    author: "Анна",
+    context: "формат «Выходные с Ерофеевыми»",
+  },
+  {
+    quote:
+      "Это не санаторий и не спа — это глубокая работа с конкретным запросом. Ксения и Евгений работают парой, и это даёт совершенно другой эффект.",
+    author: "Дмитрий",
+    context: "VIP-комплекс, 10 дней",
+  },
+  {
+    quote:
+      "Уезжала со слезами благодарности. Понимаю, что вернусь — не за процедурами, а за этим состоянием тишины и ясности, которое здесь возвращается.",
+    author: "Марина",
+    context: "индивидуальный формат",
+  },
+];
+---
+
+<section
+  class="py-section-gap-lg bg-surface-container-low"
+  id="testimonials"
+>
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+    <div class="mb-16 reveal max-w-3xl">
+      <span
+        class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
+        >Отзывы</span
+      >
+      <h2
+        class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+      >
+        Что говорят те, <br />
+        <span class="italic font-normal text-primary">кто уже был у нас</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        testimonials.map((t) => (
+          <figure class="reveal bg-surface p-10 rounded-2xl border border-outline/10 flex flex-col h-full">
+            <span class="material-symbols-outlined text-primary text-4xl mb-6">
+              format_quote
+            </span>
+            <blockquote class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-8 flex-grow">
+              {t.quote}
+            </blockquote>
+            <figcaption>
+              <p class="font-bold text-on-surface">{t.author}</p>
+              <p class="font-label-caps text-label-caps text-tertiary mt-1">
+                {t.context}
+              </p>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

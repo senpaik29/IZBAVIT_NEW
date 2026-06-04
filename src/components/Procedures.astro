@@ -1,52 +1,160 @@
 ---
-const procedures = [
-  { icon: "search", title: "Диагностика", body: "Системный взгляд на причину состояния перед стартом." },
-  { icon: "spa", title: "Гуаша", body: "Скребковая техника для активации лимфы." },
-  { icon: "face", title: "Букальный массаж", body: "Глубокая работа с лицевыми мышцами изнутри." },
-  { icon: "self_improvement", title: "Нагаечный массаж", body: "Старинная казачья практика мягких ударов." },
-  { icon: "footprint", title: "Работа со ступнями", body: "Вакуумная проработка рефлекторных зон." },
-  { icon: "biotech", title: "Гирудотерапия", body: "Разгрузка венозной системы пиявками." },
-  { icon: "local_fire_department", title: "Огненный массаж", body: "Глубокий прогрев тканей открытым огнём." },
-  { icon: "spa", title: "Медовая ладка", body: "Детокс кожи и тканей медовой техникой." },
-  { icon: "deck", title: "Баня", body: "Контрастный тепловой стресс для сосудов." },
-  { icon: "self_improvement", title: "Медитации", body: "Дыхательные практики и чайные церемонии." },
+const categories = [
+  {
+    title: "Массаж и телесные практики",
+    icon: "spa",
+    items: [
+      {
+        title: "Баночный массаж",
+        body: "Лимфодренаж, снятие мышечных спазмов, выброс эндорфинов, антицеллюлитный эффект.",
+      },
+      {
+        title: "Висцеральная терапия",
+        body: "Мягкая работа с внутренними органами, восстановление их подвижности, устранение болей в животе и спине.",
+      },
+      {
+        title: "Коррекция малого таза",
+        body: "Устранение перекоса таза и разницы в длине ног, облегчение болей в крестце и пояснице.",
+      },
+      {
+        title: "Буккальный массаж",
+        body: "Внутриротовой лифтинг лица, снятие челюстных зажимов, разглаживание носогубных складок.",
+      },
+      {
+        title: "Гуаша",
+        body: "Скребковый массаж, мощный детокс, омоложение кожи, активация иммунитета.",
+      },
+      {
+        title: "Огненный массаж полотенцами",
+        body: "Глубокое влажное прогревание, снятие хронических спазмов, эйфория и тотальное расслабление.",
+      },
+      {
+        title: "Массаж нагайками",
+        body: "Вибростимуляция, эмоциональная разрядка, антицеллюлитный эффект, мощный выброс эндорфинов.",
+      },
+      {
+        title: "Медовые ладки",
+        body: "Вытяжки — выведение токсинов через кожу, глубокое питание, лифтинг и очищение.",
+      },
+    ],
+  },
+  {
+    title: "Гирудотерапия",
+    icon: "biotech",
+    items: [
+      {
+        title: "Лечение пиявками",
+        body: "Разжижение крови, снятие воспаления и отёков, обезболивание, иммуномодуляция.",
+      },
+    ],
+  },
+  {
+    title: "Двигательная реабилитация",
+    icon: "fitness_center",
+    items: [
+      {
+        title: "ЛФК",
+        body: "Лечебная гимнастика для коррекции осанки, укрепления мышечного корсета и восстановления подвижности.",
+      },
+    ],
+  },
+  {
+    title: "Тепловые процедуры",
+    icon: "local_fire_department",
+    items: [
+      {
+        title: "Фитобочка",
+        body: "Кедровая бочка, глубокий прогрев, детокс, усиление микроциркуляции.",
+      },
+      {
+        title: "Солевая ванна",
+        body: "Минеральное насыщение, расслабление мышц, снятие отёков.",
+      },
+      {
+        title: "Баня",
+        body: "По желанию. Очищение, контрастное закаливание, глубокая релаксация.",
+      },
+    ],
+  },
+  {
+    title: "Практики осознанности",
+    icon: "self_improvement",
+    items: [
+      {
+        title: "Дыхательные практики и медитации",
+        body: "Снятие тревожности, гармонизация нервной системы, улучшение сна.",
+      },
+      {
+        title: "Чайные церемонии",
+        body: "Мягкое погружение в состояние «здесь и сейчас», антистресс-ритуал.",
+      },
+      {
+        title: "Прогулки по живописным местам",
+        body: "Насыщение природной энергией, мягкое восстановление душевного баланса.",
+      },
+    ],
+  },
 ];
 ---
 
 <section class="py-section-gap-lg bg-surface-container-low" id="procedures">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 reveal">
-      <div class="max-w-2xl">
-        <span
-          class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
-          >Процедуры</span
-        >
-        <h2
-          class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface"
-        >
-          Дополнительные техники <br />
-          по запросу
-        </h2>
-      </div>
-      <p class="text-on-surface-variant max-w-sm">
-        Каждая техника усиливает результат основного курса и точечно работает с
-        конкретными состояниями тела.
+    <div class="mb-16 reveal">
+      <span
+        class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
+        >Наши методы оздоровления</span
+      >
+      <h2
+        class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+      >
+        Индивидуальная программа <br />
+        под <span class="italic font-normal text-primary">ваш запрос</span>
+      </h2>
+      <p
+        class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl"
+      >
+        Последовательность, сочетания и количество процедур определяются после
+        консультации. Начинаем с диагностики — определяем причину, а не работаем
+        со следствиями. Обязательно проводим полный психосоматический разбор
+        и регуляцию психофизического состояния.
       </p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+    <div class="space-y-12">
       {
-        procedures.map((p) => (
-          <div class="reveal bg-surface p-8 rounded-xl border border-outline/10 hover:shadow-xl transition-all group">
-            <span class="material-symbols-outlined text-primary mb-6 block group-hover:scale-110 transition-transform">
-              {p.icon}
-            </span>
-            <h3 class="font-headline-sm text-[20px] mb-3 text-on-surface">
-              {p.title}
-            </h3>
-            <p class="text-sm text-on-surface-variant">{p.body}</p>
+        categories.map((cat) => (
+          <div class="reveal">
+            <div class="flex items-center gap-4 mb-8">
+              <span class="material-symbols-outlined text-primary text-3xl">
+                {cat.icon}
+              </span>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                {cat.title}
+              </h3>
+            </div>
+            <div
+              class={`grid grid-cols-1 sm:grid-cols-2 gap-6 ${cat.items.length >= 3 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}
+            >
+              {cat.items.map((it) => (
+                <div class="bg-surface p-8 rounded-xl border border-outline/10 hover:shadow-xl transition-all">
+                  <h4 class="font-headline-sm text-[18px] mb-3 text-on-surface">
+                    {it.title}
+                  </h4>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">
+                    {it.body}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         ))
       }
     </div>
+
+    <p class="mt-16 text-on-surface-variant/80 italic max-w-3xl reveal">
+      Все процедуры подбираются индивидуально, исходя из вашей проблематики
+      и запроса. Длительность, последовательность и количество сессий
+      определяются на консультации.
+    </p>
   </div>
 </section>

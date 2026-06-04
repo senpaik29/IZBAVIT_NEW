@@ -2,39 +2,52 @@
 const days = [
   {
     num: 1,
-    title: "Заезд и знакомство",
+    title: "Погружение и настройка",
     items: [
-      { label: "Заезд и размещение", time: "14:00" },
-      { label: "Ужин" },
-      { label: "Консультация с Ксенией", featured: true },
-      { label: "Психосоматика с Евгением" },
-      { label: "Фитобочка с травами" },
+      { time: "12:00", label: "Заезд, размещение. Лёгкий перекус — травяной чай, фермерские угощения." },
+      { time: "13:00", label: "Диагностика. Психосоматический разбор и консультация. Ищем первопричины состояния, определяем индивидуальный план процедур на все дни.", featured: true },
+      { time: "15:30", label: "Обед из местных фермерских продуктов." },
+      { time: "16:00", label: "Отдых, прогулка по живописным местам." },
+      { time: "17:00", label: "Первая телесная практика — например, висцеральная терапия или баночный массаж.", featured: true },
+      { time: "18:30", label: "Тепловая процедура: кедровая фитобочка или солевая ванна. Глубокий прогрев и расслабление." },
+      { time: "19:30", label: "Свободное время, отдых в номере или на территории." },
+      { time: "20:00", label: "Ужин." },
+      { time: "21:00", label: "Вечерний травяной чай, общение." },
+      { time: "22:00", label: "Сон." },
     ],
   },
   {
     num: 2,
-    title: "Глубокая работа",
+    title: "Основная трансформационная работа",
     items: [
-      { label: "ЛФК", time: "08:00" },
-      { label: "Завтрак" },
-      { label: "Висцеральный массаж", featured: true },
-      { label: "Прогулка" },
-      { label: "Обед" },
-      { label: "Вакуумная процедура", featured: true },
-      { label: "Солевая ванна" },
-      { label: "Ужин" },
+      { time: "07:30", label: "Подъём, стакан тёплой воды с травами." },
+      { time: "08:00", label: "Утренняя дыхательная практика и лёгкая ЛФК, гимнастика — пробуждение тела и выравнивание психики." },
+      { time: "09:00", label: "Завтрак: свежие молочные продукты, яйца, фермерский хлеб, мёд." },
+      { time: "10:00", label: "Первая утренняя процедура — исходя из программы.", featured: true },
+      { time: "11:30", label: "Прогулка, отдых, лимфотоник." },
+      { time: "12:00", label: "Чайная церемония-медитация. Погружение в момент «здесь и сейчас»." },
+      { time: "13:30", label: "Обед." },
+      { time: "14:30", label: "Послеобеденный отдых (рекомендуем короткий сон)." },
+      { time: "16:00", label: "Вторая процедура: гирудотерапия (по показаниям) или дополнительная работа по телу — огненный массаж.", featured: true },
+      { time: "17:30", label: "Тепловая процедура или баня (по желанию) с парением от Евгения — мягкое очищение и глубокое расслабление." },
+      { time: "19:30", label: "Свободное время, лимфотоник." },
+      { time: "20:00", label: "Ужин." },
+      { time: "20:30", label: "Чаепитие, беседа у свечей, подведение промежуточных ощущений." },
+      { time: "21:30", label: "Завершающая медитация или дыхательная практика для интеграции дня." },
+      { time: "22:00", label: "Сон." },
     ],
   },
   {
     num: 3,
-    title: "Закрепление",
+    title: "Интеграция и возвращение",
     items: [
-      { label: "ЛФК" },
-      { label: "Завтрак" },
-      { label: "Гирудотерапия", featured: true },
-      { label: "Обед" },
-      { label: "Чайная медитация" },
-      { label: "Отъезд", time: "16:00" },
+      { time: "08:00", label: "Подъём, тёплая вода, травяной чай, лимфотоник." },
+      { time: "08:30", label: "Дыхательная практика и мягкая ЛФК — закрепление телесного баланса." },
+      { time: "09:30", label: "Завтрак." },
+      { time: "10:30", label: "Завершающая процедура.", featured: true },
+      { time: "12:00", label: "Прогулка, личная беседа с нами — обсуждение результатов, рекомендации по дальнейшей самостоятельной работе." },
+      { time: "13:00", label: "Прощальный обед." },
+      { time: "14:00", label: "Отъезд." },
     ],
   },
 ];
@@ -42,7 +55,7 @@ const days = [
 
 <section class="py-section-gap-lg bg-surface" id="schedule">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-    <div class="mb-16 reveal">
+    <div class="mb-16 reveal max-w-3xl">
       <span
         class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
         >Расписание</span
@@ -50,14 +63,18 @@ const days = [
       <h2
         class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
       >
-        Пример расписания на 3 дня
+        Примерное расписание <br />
+        «<span class="italic font-normal text-primary">Выходные с Ерофеевыми</span>»
       </h2>
-      <p class="text-on-surface-variant/70">
-        Формат «Выходные с Ерофеевыми». Возможна коррекция процедур под ваш
-        запрос.
+      <p class="text-on-surface-variant">
+        Это примерный ритм, а не строгая программа. Наполнение и
+        последовательность процедур всегда исходят из вашего состояния и
+        запроса. Между процедурами всегда есть паузы на отдых, чай, уединение —
+        мы не перегружаем нервную систему.
       </p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
       {
         days.map((d) => (
           <div class="reveal">
@@ -66,28 +83,35 @@ const days = [
                 {d.num}
               </span>
               <h4 class="font-headline-sm text-headline-sm text-on-surface">
-                {d.title}
+                День {d.num}. {d.title}
               </h4>
             </div>
-            <ul class="space-y-4 border-l-2 border-surface-container ml-5 pl-8">
-              {d.items.map((it, idx) => (
+            <ul class="space-y-3">
+              {d.items.map((it) => (
                 <li
-                  class={`flex justify-between items-center py-2 ${idx < d.items.length - 1 ? "border-b border-surface-container/50" : ""} ${it.featured ? "text-on-surface font-bold" : ""}`}
+                  class={`flex gap-4 py-3 border-b border-surface-container/70 ${it.featured ? "text-on-surface font-bold" : "text-on-surface-variant"}`}
                 >
-                  <span class={it.featured ? "" : "text-on-surface-variant"}>
-                    {it.label}
+                  <span class="font-label-caps text-label-caps text-primary shrink-0 w-12 pt-1">
+                    {it.time}
                   </span>
-                  {it.time && (
-                    <span class="font-label-caps text-label-caps text-tertiary">
-                      {it.time}
-                    </span>
-                  )}
+                  <span class="text-sm leading-relaxed">{it.label}</span>
                 </li>
               ))}
             </ul>
           </div>
         ))
       }
+    </div>
+
+    <div class="mt-12 reveal max-w-3xl text-on-surface-variant/80 text-sm leading-relaxed space-y-3">
+      <p>
+        Питание трёхразовое, с возможностью лёгких перекусов; в любое время
+        доступны травы, мёд, свежие напитки.
+      </p>
+      <p>
+        Все практики, включая баню, прогулки и медитации, — часть общего
+        процесса перенастройки тела и психики.
+      </p>
     </div>
   </div>
 </section>

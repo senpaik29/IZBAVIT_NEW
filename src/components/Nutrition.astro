@@ -1,48 +1,126 @@
 ---
-const items = [
-  { icon: "egg", title: "Мясо и яйца", body: "От проверенных хозяйств станицы." },
-  { icon: "icecream", title: "Молочка", body: "Свежее козье молоко и фермерский сыр." },
-  { icon: "nutrition", title: "Овощи и фрукты", body: "Сезонные продукты Краснодарского края." },
-  { icon: "local_florist", title: "Мёд и травы", body: "Основа дневного режима гостя." },
+const principles = [
+  {
+    icon: "agriculture",
+    title: "Фермерские продукты местного происхождения",
+    body: "Всё свежее, выращенное и произведённое в нашем регионе без промышленных технологий, с сохранением природной пользы.",
+  },
+  {
+    icon: "eco",
+    title: "Эко-продукция без химии и добавок",
+    body: "Молоко, масло, мясо, овощи, фрукты, яйца — из хозяйств, где заботятся о земле и животных.",
+  },
+  {
+    icon: "tune",
+    title: "Сбалансированное меню под ваши задачи",
+    body: "Мы не навязываем единую диету, а выстраиваем рацион под конкретного человека: его состояние, запрос, текущий телесный и эмоциональный фон.",
+  },
+];
+
+const onTheTable = [
+  {
+    icon: "icecream",
+    title: "Молочный ряд от коз и коров",
+    body: "Свежее молоко, мацони, творог, сметана, козий сыр, сливочное масло.",
+  },
+  {
+    icon: "kebab_dining",
+    title: "Мясо местных фермеров",
+    body: "Курица, кролик, баранина — без гормонов и стимуляторов роста.",
+  },
+  {
+    icon: "nutrition",
+    title: "Овощи, фрукты и зелень",
+    body: "Сезонные продукты с окрестных полей и садов.",
+  },
+  {
+    icon: "local_florist",
+    title: "Натуральный мёд и травы",
+    body: "Дикие и культивированные травы для настоев и чаёв.",
+  },
+  {
+    icon: "egg",
+    title: "Яйца от свободновыгульных кур",
+    body: "Из фермерских хозяйств станицы и окрестностей.",
+  },
 ];
 ---
 
-<section class="py-section-gap-lg bg-surface">
+<section class="py-section-gap-lg bg-surface" id="nutrition">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-    <div class="grid md:grid-cols-2 gap-16">
-      <div class="reveal">
-        <span
-          class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
-          >Питание</span
-        >
-        <h2
-          class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8"
-        >
-          Эко-продукция от <br />
-          местных фермеров
-        </h2>
-        <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
-          Сбалансированное специальное питание — обязательная часть восстановления.
-          Мы знаем, у кого берём каждую банку молока и каждое яйцо.
-        </p>
-        <p class="text-on-surface-variant/70">
-          Разнообразное меню обсуждается индивидуально — подберём персональный
-          рацион с учётом ваших задач и предпочтений.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="mb-16 reveal max-w-3xl">
+      <span
+        class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
+        >Питание</span
+      >
+      <h2
+        class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+      >
+        Питание как часть <br />
+        <span class="italic font-normal text-primary">восстановления баланса</span>
+      </h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">
+        Еда здесь — не просто приём калорий, а источник живой силы,
+        способствующий возвращению к физиологическому равновесию и ровному
+        состоянию психики. Дать телу естественную опору для самовосстановления —
+        тот же принцип, что и во всех практиках комплекса.
+      </p>
+    </div>
+
+    <div class="mb-16">
+      <h3
+        class="font-headline-sm text-headline-sm text-on-surface mb-8 reveal"
+      >
+        Что лежит в основе
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {
-          items.map((c) => (
+          principles.map((p) => (
             <div class="reveal p-8 bg-surface-container rounded-2xl">
-              <span class="material-symbols-outlined text-primary mb-4">
+              <span class="material-symbols-outlined text-primary text-3xl mb-4 block">
+                {p.icon}
+              </span>
+              <h4 class="font-bold text-on-surface mb-3">{p.title}</h4>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                {p.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h3
+        class="font-headline-sm text-headline-sm text-on-surface mb-8 reveal"
+      >
+        Что у нас на столе
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        {
+          onTheTable.map((c) => (
+            <div class="reveal p-6 bg-surface-container-low rounded-xl border-l-4 border-primary">
+              <span class="material-symbols-outlined text-primary mb-3 block">
                 {c.icon}
               </span>
-              <h4 class="font-bold text-on-surface mb-2">{c.title}</h4>
+              <h4 class="font-bold text-on-surface mb-2 text-sm">{c.title}</h4>
               <p class="text-sm text-on-surface-variant">{c.body}</p>
             </div>
           ))
         }
       </div>
+    </div>
+
+    <div class="reveal bg-primary/5 border border-primary/20 rounded-2xl p-8 max-w-3xl">
+      <h4 class="font-headline-sm text-[20px] text-on-surface mb-3">
+        Персональный подход
+      </h4>
+      <p class="text-on-surface-variant leading-relaxed">
+        Меню обсуждается отдельно и легко корректируется под ваши предпочтения,
+        самочувствие и цели пребывания. Мы поможем собрать оптимальную
+        комбинацию, чтобы питание стало мягкой, но мощной поддержкой глубокой
+        системной перезагрузки тела и психики.
+      </p>
     </div>
   </div>
 </section>

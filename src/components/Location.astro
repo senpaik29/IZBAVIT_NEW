@@ -1,0 +1,107 @@
+---
+const sights = [
+  {
+    icon: "landscape",
+    title: "Гора Собер-Баш",
+    body: "Главная вершина окрестностей, священное место с панорамным видом на десятки километров. Подъём несложный, а наградой станет ощущение полёта над предгорьями.",
+  },
+  {
+    icon: "terrain",
+    title: "Скала Золотой Камень",
+    body: "Живописный скальный массив, окутанный легендами. Место силы с масштабным видом на долину Афипса и бескрайние леса.",
+  },
+  {
+    icon: "park",
+    title: "Лесные тропы и урочища",
+    body: "Десятки километров уютных дорог среди вековых деревьев — идеально для неспешных прогулок, дыхательных практик и медитаций.",
+  },
+  {
+    icon: "water",
+    title: "Водопады на притоках Афипса",
+    body: "Небольшие, но живые и звонкие, особенно полноводные весной и в начале лета.",
+  },
+  {
+    icon: "church",
+    title: "Казачья история",
+    body: "Станица хранит дух кубанского казачества. В центре — Свято-Успенский храм, а местные улочки дышат стариной и радушием.",
+  },
+];
+---
+
+<section
+  class="py-section-gap-lg bg-surface-container-high text-on-surface"
+  id="location"
+>
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+    <div class="mb-16 reveal max-w-3xl">
+      <span
+        class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
+        >Локация</span
+      >
+      <h2
+        class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+      >
+        Станица Смоленская — <br />
+        <span class="italic font-normal text-primary">уголок предгорного покоя</span>
+      </h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-4">
+        Наша станица расположена в Северском районе Краснодарского края,
+        в мягком обрамлении предгорий Большого Кавказа. Здесь нет городской
+        суеты и толп туристов — только размеренный ритм жизни, чистый воздух
+        и щедрая природа, которая сама настраивает на восстановление и баланс.
+      </p>
+      <p class="text-on-surface-variant">
+        Станица утопает в зелени дубовых и грабовых лесов, а сразу за околицей
+        открываются холмистые панорамы, переходящие в горные хребты. Рядом
+        несёт свои воды река Афипс — извилистая и говорливая, с каменистыми
+        берегами. Воздух настоян на смоле, луговых травах и прохладе горных
+        вершин.
+      </p>
+    </div>
+
+    <div class="mb-16">
+      <h3
+        class="font-headline-sm text-headline-sm text-on-surface mb-8 reveal"
+      >
+        Что увидеть и почувствовать вокруг
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          sights.map((s) => (
+            <div class="reveal bg-surface p-8 rounded-2xl border border-outline/10">
+              <span class="material-symbols-outlined text-primary text-3xl mb-4 block">
+                {s.icon}
+              </span>
+              <h4 class="font-headline-sm text-[20px] text-on-surface mb-3">
+                {s.title}
+              </h4>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                {s.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div
+      class="reveal bg-primary/5 border border-primary/20 rounded-2xl p-10 max-w-4xl"
+    >
+      <h4 class="font-headline-sm text-[22px] text-on-surface mb-4">
+        Природа как союзник исцеления
+      </h4>
+      <p class="text-on-surface-variant leading-relaxed mb-4">
+        Предгорья Кавказа — уникальная климатическая зона, где мягкое южное
+        тепло встречается с горной свежестью. Такое сочетание создаёт идеальную
+        среду для перезагрузки организма: насыщенный кислородом воздух
+        активизирует обмен веществ, а тишина и зелень успокаивают нервную
+        систему.
+      </p>
+      <p class="text-on-surface-variant leading-relaxed">
+        Здесь легко дышится, глубоко спится и возвращается ясность ума. Прогулки
+        по окрестным холмам и лесам становятся естественным продолжением наших
+        практик — вы сможете впитывать силу этой земли каждый день.
+      </p>
+    </div>
+  </div>
+</section>

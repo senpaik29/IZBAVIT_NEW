@@ -1,4 +1,8 @@
 ---
+// Куда отправлять заявку — заглушка до настройки backend (Formspree, FormSubmit,
+// Telegram-bot и т. д.). Поменяйте FORM_ACTION на реальный endpoint, когда
+// backend будет готов.
+const FORM_ACTION = "#";
 ---
 
 <section
@@ -15,12 +19,16 @@
           <span class="text-primary italic font-normal">перезагрузке?</span>
         </h2>
         <p class="text-on-primary-container/70 mb-12">
-          Оставьте заявку или позвоните — мы свяжемся, чтобы подобрать формат
-          VIP-комплекса.
+          Оставьте заявку или напишите нам напрямую — обсудим формат, цены и
+          подберём оптимальную программу под ваш запрос.
         </p>
         <div class="space-y-8">
-          <div class="flex items-center gap-6">
-            <span class="material-symbols-outlined text-primary text-3xl"
+          <a
+            class="flex items-center gap-6 group"
+            href="tel:+79155889235"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform"
               >call</span
             >
             <div>
@@ -29,14 +37,32 @@
               >
                 Телефон
               </p>
-              <a
-                class="text-xl font-bold text-on-primary-container"
-                href="tel:+79155889235"
-              >
+              <span class="text-xl font-bold text-on-primary-container">
                 +7 915 588-92-35
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
+          <a
+            class="flex items-center gap-6 group"
+            href="https://t.me/"
+            rel="noopener"
+            target="_blank"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform"
+              >send</span
+            >
+            <div>
+              <p
+                class="font-label-caps text-label-caps text-on-primary-fixed-variant"
+              >
+                Telegram
+              </p>
+              <span class="text-xl font-bold text-on-primary-container">
+                Написать сразу
+              </span>
+            </div>
+          </a>
           <div class="flex items-center gap-6">
             <span class="material-symbols-outlined text-primary text-3xl"
               >place</span
@@ -52,25 +78,15 @@
               </p>
             </div>
           </div>
-          <div class="flex items-center gap-6">
-            <span class="material-symbols-outlined text-primary text-3xl"
-              >person</span
-            >
-            <div>
-              <p
-                class="font-label-caps text-label-caps text-on-primary-fixed-variant"
-              >
-                Формат
-              </p>
-              <p class="text-xl font-bold text-on-primary-container">
-                Индивидуальный VIP-приём
-              </p>
-            </div>
-          </div>
         </div>
       </div>
       <div class="bg-surface p-10 rounded-2xl shadow-xl reveal">
-        <form class="space-y-6">
+        <form
+          class="space-y-6"
+          action={FORM_ACTION}
+          method="POST"
+          autocomplete="on"
+        >
           <div>
             <label
               for="name"
@@ -79,22 +95,26 @@
             >
             <input
               id="name"
+              name="name"
               class="w-full bg-surface-container border-none rounded-lg focus:ring-1 focus:ring-primary p-4 text-on-surface"
               placeholder="Александр"
               type="text"
+              required
             />
           </div>
           <div>
             <label
               for="phone"
               class="font-label-caps text-label-caps text-tertiary mb-2 block"
-              >Телефон</label
+              >Телефон или Telegram</label
             >
             <input
               id="phone"
+              name="contact"
               class="w-full bg-surface-container border-none rounded-lg focus:ring-1 focus:ring-primary p-4 text-on-surface"
-              placeholder="+7 (___) ___-__-__"
-              type="tel"
+              placeholder="+7 (___) ___-__-__ или @username"
+              type="text"
+              required
             />
           </div>
           <div>
@@ -105,10 +125,28 @@
             >
             <textarea
               id="message"
+              name="message"
               class="w-full bg-surface-container border-none rounded-lg focus:ring-1 focus:ring-primary p-4 text-on-surface"
-              placeholder="Расскажите, что вас беспокоит..."
+              placeholder="Расскажите, что вас беспокоит, и какой формат интересует..."
               rows="4"></textarea>
           </div>
+
+          {/* Honeypot: скрытое поле, которое реальный пользователь не заполнит.
+              На бэкенде проверяем, что оно пустое — иначе отбрасываем. */}
+          <div
+            aria-hidden="true"
+            style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"
+          >
+            <label for="website">Не заполняйте это поле</label>
+            <input
+              id="website"
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
           <button
             class="w-full bg-primary text-on-primary py-5 rounded-lg font-bold hover:bg-on-primary-container hover:text-on-primary transition-all duration-300"
             type="submit"
