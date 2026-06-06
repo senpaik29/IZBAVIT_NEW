@@ -1,8 +1,9 @@
 ---
-// Куда отправлять заявку — заглушка до настройки backend (Formspree, FormSubmit,
-// Telegram-bot и т. д.). Поменяйте FORM_ACTION на реальный endpoint, когда
-// backend будет готов.
-const FORM_ACTION = "#";
+// Форма уходит через FormSubmit (formsubmit.co) — заявки доставляются на
+// senpaik29@gmail.com. Первое сообщение придёт как письмо-активация: нужно
+// один раз кликнуть в нём по ссылке, после этого все следующие заявки будут
+// приходить автоматически.
+const FORM_ACTION = "https://formsubmit.co/senpaik29@gmail.com";
 ---
 
 <section
@@ -44,7 +45,7 @@ const FORM_ACTION = "#";
           </a>
           <a
             class="flex items-center gap-6 group"
-            href="https://t.me/"
+            href="https://t.me/k29senpai"
             rel="noopener"
             target="_blank"
           >
@@ -87,6 +88,9 @@ const FORM_ACTION = "#";
           method="POST"
           autocomplete="on"
         >
+          <input type="hidden" name="_subject" value="Новая заявка с сайта Izba.Vit" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
           <div>
             <label
               for="name"
@@ -131,8 +135,7 @@ const FORM_ACTION = "#";
               rows="4"></textarea>
           </div>
 
-          {/* Honeypot: скрытое поле, которое реальный пользователь не заполнит.
-              На бэкенде проверяем, что оно пустое — иначе отбрасываем. */}
+          {/* Honeypot: FormSubmit отбрасывает заявку, если это поле заполнено. */}
           <div
             aria-hidden="true"
             style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"
@@ -140,7 +143,7 @@ const FORM_ACTION = "#";
             <label for="website">Не заполняйте это поле</label>
             <input
               id="website"
-              name="website"
+              name="_honey"
               type="text"
               tabindex="-1"
               autocomplete="off"
