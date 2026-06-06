@@ -5,11 +5,10 @@
 // приходить автоматически.
 const FORM_ACTION = "https://formsubmit.co/senpaik29@gmail.com";
 // FormSubmit делает 302 на этот URL после успешной отправки. Astro.site нужен,
-// потому что _next требует абсолютный URL.
-const NEXT_URL = new URL(
-  `${import.meta.env.BASE_URL}thank-you`,
-  Astro.site,
-).toString();
+// потому что _next требует абсолютный URL. BASE_URL в продакшен-сборке отдаётся
+// без завершающего слэша, поэтому строим путь явно через split-rejoin.
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const NEXT_URL = new URL(`${base}/thank-you`, Astro.site).toString();
 ---
 
 <section
