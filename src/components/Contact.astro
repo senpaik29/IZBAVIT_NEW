@@ -4,6 +4,12 @@
 // один раз кликнуть в нём по ссылке, после этого все следующие заявки будут
 // приходить автоматически.
 const FORM_ACTION = "https://formsubmit.co/senpaik29@gmail.com";
+// FormSubmit делает 302 на этот URL после успешной отправки. Astro.site нужен,
+// потому что _next требует абсолютный URL.
+const NEXT_URL = new URL(
+  `${import.meta.env.BASE_URL}thank-you`,
+  Astro.site,
+).toString();
 ---
 
 <section
@@ -91,6 +97,7 @@ const FORM_ACTION = "https://formsubmit.co/senpaik29@gmail.com";
           <input type="hidden" name="_subject" value="Новая заявка с сайта Izba.Vit" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value={NEXT_URL} />
           <div>
             <label
               for="name"
