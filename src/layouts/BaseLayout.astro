@@ -259,5 +259,21 @@ const {
         });
       });
     </script>
+
+    <script is:inline>
+      // Re-scroll to a #hash target after images/layout settle. The browser's
+      // initial anchor jump happens before lazy-loaded images take up their
+      // space, so the page ends up at the wrong y-offset.
+      window.addEventListener("load", () => {
+        const hash = window.location.hash;
+        if (!hash || hash.length < 2) return;
+        const target = document.querySelector(hash);
+        if (!target) return;
+        // One paint later, run the scroll so any post-load layout shifts settle.
+        requestAnimationFrame(() => {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    </script>
   </body>
 </html>
