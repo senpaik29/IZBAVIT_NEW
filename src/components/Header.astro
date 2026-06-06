@@ -1,13 +1,15 @@
 ---
 import logoSvg from "~/assets/logo.svg?raw";
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const links = [
-  { href: "#about", label: "О нас" },
-  { href: "#procedures", label: "Методы" },
-  { href: "#nutrition", label: "Питание" },
-  { href: "#formats", label: "Форматы" },
-  { href: "#location", label: "Станица" },
-  { href: "#testimonials", label: "Отзывы" },
+  { href: `${base}/#about`, label: "О нас" },
+  { href: `${base}/#procedures`, label: "Методы" },
+  { href: `${base}/#nutrition`, label: "Питание" },
+  { href: `${base}/#formats`, label: "Форматы" },
+  { href: `${base}/#location`, label: "Станица" },
+  { href: `${base}/#testimonials`, label: "Отзывы" },
 ];
 ---
 
@@ -20,7 +22,7 @@ const links = [
   >
     <a
       class="flex items-center text-primary [&>span>svg]:h-full [&>span>svg]:w-auto"
-      href="#"
+      href={`${base}/`}
       aria-label="IzbaVit"
     >
       <span class="block h-20 md:h-24" set:html={logoSvg} />
@@ -39,7 +41,7 @@ const links = [
     </nav>
     <a
       class="bg-primary text-on-primary px-8 py-3 rounded font-label-caps text-[0.975rem] hover:opacity-90 transition-opacity"
-      href="#contact"
+      href={`${base}/#contact`}
     >
       Записаться
     </a>
