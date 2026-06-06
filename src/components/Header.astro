@@ -52,7 +52,7 @@ const links = [
       class="overflow-x-auto border-t border-outline/10 max-h-0 opacity-0 transition-all duration-300 ease-out mobile-nav-scroll"
       id="mobile-nav"
     >
-      <div class="flex items-center gap-6 px-margin-mobile py-3 whitespace-nowrap">
+      <div class="flex items-center gap-6 px-margin-mobile pt-3 pb-3 whitespace-nowrap">
         {
           links.map((l) => (
             <a
@@ -67,7 +67,19 @@ const links = [
     </nav>
     <div
       aria-hidden="true"
-      class="pointer-events-none absolute right-0 top-0 bottom-1 w-10 bg-gradient-to-l from-surface/95 to-transparent opacity-0 transition-opacity duration-300"
+      class="pointer-events-none absolute left-3 right-3 bottom-1 h-[3px] rounded-full bg-on-surface/10 opacity-0 transition-opacity duration-300"
+      id="mobile-nav-track"
+    >
+      <div
+        class="absolute top-0 bottom-0 left-0 rounded-full bg-primary/70"
+        id="mobile-nav-thumb"
+        style="width: 30%;"
+      >
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute right-0 top-0 bottom-2 w-10 bg-gradient-to-l from-surface/95 to-transparent opacity-0 transition-opacity duration-300"
       id="mobile-nav-fade"
     >
     </div>
@@ -76,19 +88,10 @@ const links = [
 
 <style is:global>
   .mobile-nav-scroll {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 109, 60, 0.55) transparent;
+    scrollbar-width: none;
   }
   .mobile-nav-scroll::-webkit-scrollbar {
-    height: 4px;
-    -webkit-appearance: none;
-  }
-  .mobile-nav-scroll::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .mobile-nav-scroll::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 109, 60, 0.55);
-    border-radius: 2px;
+    display: none;
   }
 </style>
 
@@ -96,6 +99,8 @@ const links = [
   (() => {
     const nav = document.getElementById("mobile-nav");
     const fade = document.getElementById("mobile-nav-fade");
+    const track = document.getElementById("mobile-nav-track");
+    const thumb = document.getElementById("mobile-nav-thumb");
     if (!nav) return;
 
     const onPageScroll = () => {
@@ -106,20 +111,37 @@ const links = [
         nav.classList.add("max-h-0", "opacity-0");
         nav.classList.remove("max-h-16", "opacity-100");
       }
-      updateFade();
+      updateIndicators();
     };
 
-    const updateFade = () => {
-      if (!fade) return;
+    const updateIndicators = () => {
       const navVisible = nav.classList.contains("opacity-100");
+      const scrollable = nav.scrollWidth > nav.clientWidth + 1;
       const hasMore =
         nav.scrollLeft + nav.clientWidth < nav.scrollWidth - 4;
-      fade.style.opacity = navVisible && hasMore ? "1" : "0";
+
+      if (fade) fade.style.opacity = navVisible && hasMore ? "1" : "0";
+
+      if (track && thumb) {
+        if (!navVisible || !scrollable) {
+          track.style.opacity = "0";
+        } else {
+          track.style.opacity = "1";
+          const widthPct = (nav.clientWidth / nav.scrollWidth) * 100;
+          const maxScroll = nav.scrollWidth - nav.clientWidth;
+          const leftPct =
+            maxScroll > 0
+              ? (nav.scrollLeft / maxScroll) * (100 - widthPct)
+              : 0;
+          thumb.style.width = `${widthPct}%`;
+          thumb.style.left = `${leftPct}%`;
+        }
+      }
     };
 
     onPageScroll();
     window.addEventListener("scroll", onPageScroll, { passive: true });
-    nav.addEventListener("scroll", updateFade, { passive: true });
-    window.addEventListener("resize", updateFade);
+    nav.addEventListener("scroll", updateIndicators, { passive: true });
+    window.addEventListener("resize", updateIndicators);
   })();
 </script>
