@@ -1,0 +1,120 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const dir = `${base}/before-after`;
+
+const cases = [
+  {
+    title: "Поясничный отдел",
+    note: "Восстановление физиологического лордоза, снятие компенсаторного перекоса таза.",
+    kind: "pair",
+    before: `${dir}/spine-lumbar-before.jpg`,
+    after: `${dir}/spine-lumbar-after.jpg`,
+  },
+  {
+    title: "Шейный отдел",
+    note: "Выравнивание шейно-грудного перехода, уход головы вперёд — назад в естественную ось.",
+    kind: "combined",
+    image: `${dir}/spine-cervical-before-after.jpg`,
+  },
+  {
+    title: "Грудной отдел",
+    note: "Состояние после курса: раскрытая грудная клетка и восстановленный тонус спины.",
+    kind: "after",
+    image: `${dir}/spine-thoracic-after.jpg`,
+  },
+];
+---
+
+<section class="py-section-gap-lg bg-surface" id="before-after">
+  <div class="px-margin-mobile md:px-gutter">
+    <div class="mb-16 reveal max-w-3xl">
+      <span
+        class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
+        >До и после</span
+      >
+      <h2
+        class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+      >
+        Видимый результат <br />
+        <span class="italic font-normal text-primary">работы со спиной</span>
+      </h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">
+        Фотографии гостей до прохождения программы и после курса работы с
+        позвоночником. Публикуются с письменного согласия.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        cases.map((c) => (
+          <figure class="reveal bg-surface-container-low rounded-2xl border border-outline/10 overflow-hidden flex flex-col">
+            {c.kind === "pair" && (
+              <div class="grid grid-cols-2 gap-px bg-outline/10">
+                <div class="relative bg-surface">
+                  <img
+                    alt={`${c.title} — до`}
+                    class="w-full aspect-[3/4] object-cover"
+                    src={c.before}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="absolute top-3 left-3 bg-on-surface/70 text-surface font-label-caps text-label-caps px-2 py-1 rounded">
+                    До
+                  </span>
+                </div>
+                <div class="relative bg-surface">
+                  <img
+                    alt={`${c.title} — после`}
+                    class="w-full aspect-[3/4] object-cover"
+                    src={c.after}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="absolute top-3 left-3 bg-primary text-on-primary font-label-caps text-label-caps px-2 py-1 rounded">
+                    После
+                  </span>
+                </div>
+              </div>
+            )}
+            {c.kind === "combined" && (
+              <div class="relative">
+                <img
+                  alt={`${c.title} — до и после`}
+                  class="w-full aspect-[3/4] object-cover"
+                  src={c.image}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="absolute top-3 left-3 bg-on-surface/70 text-surface font-label-caps text-label-caps px-2 py-1 rounded">
+                  До / После
+                </span>
+              </div>
+            )}
+            {c.kind === "after" && (
+              <div class="relative">
+                <img
+                  alt={`${c.title} — после`}
+                  class="w-full aspect-[3/4] object-cover"
+                  src={c.image}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="absolute top-3 left-3 bg-primary text-on-primary font-label-caps text-label-caps px-2 py-1 rounded">
+                  После
+                </span>
+              </div>
+            )}
+            <figcaption class="p-8">
+              <h3 class="font-headline-sm text-[20px] text-on-surface mb-2">
+                {c.title}
+              </h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                {c.note}
+              </p>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>
