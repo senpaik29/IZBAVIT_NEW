@@ -15,7 +15,7 @@ const links = [
   class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline/10 h-28"
 >
   <div
-    class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-full"
+    class="flex justify-between items-center w-full px-margin-mobile md:px-gutter h-full"
   >
     <a
       class="flex items-center text-primary [&>span>svg]:h-full [&>span>svg]:w-auto"
@@ -28,7 +28,7 @@ const links = [
       {
         links.map((l) => (
           <a
-            class="font-label-caps text-label-caps text-on-surface/70 hover:text-primary transition-all duration-300"
+            class="font-label-caps text-2xl text-on-surface/70 hover:text-primary transition-all duration-300"
             href={l.href}
           >
             {l.label}
@@ -37,7 +37,7 @@ const links = [
       }
     </nav>
     <a
-      class="bg-primary text-on-primary px-6 py-2 rounded font-label-caps text-label-caps hover:opacity-90 transition-opacity"
+      class="bg-primary text-on-primary px-8 py-3 rounded font-label-caps text-2xl hover:opacity-90 transition-opacity"
       href="#contact"
     >
       Записаться
