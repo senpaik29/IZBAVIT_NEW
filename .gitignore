@@ -6,6 +6,7 @@ dist/
 .env.production
 .DS_Store
 *.log
+.playwright-mcp/
 
 # Source materials & working assets (not part of shipped site)
 /Izbavit.pdf
