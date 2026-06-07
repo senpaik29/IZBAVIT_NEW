@@ -1,4 +1,6 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const sights = [
   {
     icon: "landscape",
@@ -9,6 +11,7 @@ const sights = [
     icon: "terrain",
     title: "Планческие скалы (Золотые Камни)",
     body: "Живописный скальный массив, окутанный легендами. Место силы с масштабным видом на долину Афипса и бескрайние леса.",
+    photo: `${base}/skali.jpg`,
   },
   {
     icon: "park",
@@ -68,16 +71,27 @@ const sights = [
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           sights.map((s) => (
-            <div class="reveal bg-surface p-8 rounded-2xl border border-outline/10">
-              <span class="material-symbols-outlined text-primary text-3xl mb-4 block">
-                {s.icon}
-              </span>
-              <h4 class="font-headline-sm text-[20px] text-on-surface mb-3">
-                {s.title}
-              </h4>
-              <p class="text-sm text-on-surface-variant leading-relaxed">
-                {s.body}
-              </p>
+            <div class="reveal bg-surface rounded-2xl border border-outline/10 overflow-hidden flex flex-col">
+              {s.photo && (
+                <img
+                  alt={s.title}
+                  class="w-full aspect-[4/3] object-cover"
+                  src={s.photo}
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+              <div class="p-8">
+                <span class="material-symbols-outlined text-primary text-3xl mb-4 block">
+                  {s.icon}
+                </span>
+                <h4 class="font-headline-sm text-[20px] text-on-surface mb-3">
+                  {s.title}
+                </h4>
+                <p class="text-sm text-on-surface-variant leading-relaxed">
+                  {s.body}
+                </p>
+              </div>
             </div>
           ))
         }
