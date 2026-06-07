@@ -1,4 +1,21 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const procedureShots = [
+  {
+    src: `${base}/visc.jpg`,
+    title: "Висцеральная терапия",
+  },
+  {
+    src: `${base}/banki.jpg`,
+    title: "Баночный массаж",
+  },
+  {
+    src: `${base}/pijavki.png`,
+    title: "Гирудотерапия",
+  },
+];
+
 const categories = [
   {
     title: "Массаж и телесные практики",
@@ -116,6 +133,25 @@ const categories = [
         Последовательность, сочетания и количество процедур определяются после
         консультации.
       </p>
+
+      <div class="mt-10 grid grid-cols-3 gap-3 md:gap-5 max-w-2xl">
+        {
+          procedureShots.map((s) => (
+            <figure class="rounded-xl overflow-hidden border border-outline/10 bg-surface">
+              <img
+                alt={s.title}
+                class="w-full aspect-[3/4] object-cover"
+                src={s.src}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="font-label-caps text-[10px] md:text-label-caps text-tertiary text-center px-2 py-2 leading-tight">
+                {s.title}
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
     </div>
 
     <div
