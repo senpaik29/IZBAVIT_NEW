@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "http://izbavit.ru",
+  site: "https://izbavit.ru",
   trailingSlash: "ignore",
   server: {
     port: 4321,
