@@ -116,41 +116,45 @@ const categories = [
 
 <section class="py-section-gap-lg bg-surface-container-low" id="procedures">
   <div class="px-margin-mobile md:px-gutter">
-    <div class="mb-16 reveal">
-      <span
-        class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
-        >Наши методы оздоровления</span
-      >
-      <h2
-        class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
-      >
-        Индивидуальный подход <br />
-        <span class="italic font-normal text-primary">к каждому гостю</span>
-      </h2>
-      <p
-        class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl"
-      >
-        Последовательность, сочетания и количество процедур определяются после
-        консультации.
-      </p>
+    <div class="mb-16">
+      <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+        <div class="md:col-span-7 reveal">
+          <span
+            class="font-label-caps text-label-caps text-primary mb-4 block uppercase"
+            >Наши методы оздоровления</span
+          >
+          <h2
+            class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+          >
+            Индивидуальный подход <br />
+            <span class="italic font-normal text-primary">к каждому гостю</span>
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">
+            Последовательность, сочетания и количество процедур определяются
+            после консультации.
+          </p>
+        </div>
 
-      <div class="mt-10 grid grid-cols-3 gap-3 md:gap-5 max-w-2xl">
-        {
-          procedureShots.map((s) => (
-            <figure class="rounded-xl overflow-hidden border border-outline/10 bg-surface">
-              <img
-                alt={s.title}
-                class="w-full aspect-[3/4] object-cover"
-                src={s.src}
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption class="font-label-caps text-[10px] md:text-label-caps text-tertiary text-center px-2 py-2 leading-tight">
-                {s.title}
-              </figcaption>
-            </figure>
-          ))
-        }
+        <div class="md:col-span-5 reveal">
+          <div class="grid grid-cols-3 gap-3 md:gap-4">
+            {
+              procedureShots.map((s) => (
+                <figure class="rounded-xl overflow-hidden border border-outline/10 bg-surface">
+                  <img
+                    alt={s.title}
+                    class="w-full aspect-[3/4] object-cover"
+                    src={s.src}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="font-label-caps text-[10px] md:text-label-caps text-tertiary text-center px-2 py-2 leading-tight">
+                    {s.title}
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </div>
 
