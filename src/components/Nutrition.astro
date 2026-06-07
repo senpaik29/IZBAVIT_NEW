@@ -1,9 +1,12 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const principles = [
   {
     icon: "agriculture",
     title: "Фермерские продукты местного происхождения",
     body: "Всё свежее, выращенное и произведённое в нашем регионе без промышленных технологий, с сохранением природной пользы.",
+    photo: `${base}/produkty.png`,
   },
   {
     icon: "eco",
@@ -72,14 +75,25 @@ const onTheTable = [
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {
           principles.map((p) => (
-            <div class="reveal p-8 bg-surface-container rounded-2xl">
-              <span class="material-symbols-outlined text-primary text-3xl mb-4 block">
-                {p.icon}
-              </span>
-              <h4 class="font-bold text-on-surface mb-3">{p.title}</h4>
-              <p class="text-sm text-on-surface-variant leading-relaxed">
-                {p.body}
-              </p>
+            <div class="reveal bg-surface-container rounded-2xl overflow-hidden flex flex-col">
+              {p.photo && (
+                <img
+                  alt={p.title}
+                  class="w-full aspect-[4/3] object-cover"
+                  src={p.photo}
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+              <div class="p-8">
+                <span class="material-symbols-outlined text-primary text-3xl mb-4 block">
+                  {p.icon}
+                </span>
+                <h4 class="font-bold text-on-surface mb-3">{p.title}</h4>
+                <p class="text-sm text-on-surface-variant leading-relaxed">
+                  {p.body}
+                </p>
+              </div>
             </div>
           ))
         }
