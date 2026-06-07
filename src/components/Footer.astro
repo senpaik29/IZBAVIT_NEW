@@ -5,9 +5,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const socials = [
   { icon: "send", label: "Telegram", href: "https://t.me/izba_vit" },
-  { icon: "smartphone", label: "WhatsApp", href: "https://wa.me/79155889235" },
-  { icon: "alternate_email", label: "Instagram", href: "#" },
-  { icon: "music_video", label: "VK", href: "#" },
+  {
+    icon: "smartphone",
+    label: "WhatsApp",
+    href: "https://api.whatsapp.com/send?phone=79155889235",
+  },
+  {
+    icon: "alternate_email",
+    label: "Instagram",
+    href: "https://api.whatsapp.com/send?phone=79155889235",
+  },
 ];
 
 const legal = [
