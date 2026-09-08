@@ -1,6 +1,9 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
+// Каждый элемент может нести `photos: string[]` — массив URL картинок.
+// Первый кадр отображается на карточке; клик открывает лайтбокс с
+// prev/next-навигацией (если фото больше одного).
 const categories = [
   {
     title: "Массаж и телесные практики",
@@ -9,12 +12,12 @@ const categories = [
       {
         title: "Вакуумный массаж",
         body: "Снятие мышечных спазмов, освобождение фасций, налаживание движения жидкостей, активация общего и местного иммунитета, лимфодренаж.",
-        photo: `${base}/banki.jpg`,
+        photos: [`${base}/banki.jpg`],
       },
       {
         title: "Висцеральный массаж",
         body: "Данная техника возвращает органам брюшной полости правильное положение, подвижность и кровоснабжение.",
-        photo: `${base}/visc.jpg`,
+        photos: [`${base}/visc.jpg`],
       },
       {
         title: "Коррекция малого таза",
@@ -31,7 +34,7 @@ const categories = [
       {
         title: "Огненный массаж",
         body: "Глубокое влажное прогревание, снятие хронических спазмов, эйфория и тотальное расслабление.",
-        photo: `${base}/fire-massage.jpg`,
+        photos: [`${base}/fire-massage.jpg`],
       },
       {
         title: "Массаж нагайками",
@@ -50,7 +53,7 @@ const categories = [
       {
         title: "Воздействие пиявками",
         body: "Разжижение крови, снятие воспаления и отёков, обезболивание, иммуномодуляция.",
-        photo: `${base}/pijavki.png`,
+        photos: [`${base}/pijavki.png`],
       },
     ],
   },
@@ -75,12 +78,14 @@ const categories = [
       {
         title: "Солевая ванна",
         body: "Минеральное насыщение, расслабление мышц, снятие отёков.",
-        photo: `${base}/bath.jpg`,
+        photos: [`${base}/bath.jpg`],
       },
       {
         title: "Баня",
         body: "По желанию. Очищение, контрастное закаливание, глубокая релаксация.",
-        photo: `${base}/banya.jpg`,
+        // Чтобы добавить ещё кадров в галерею, положите файлы в public/
+        // и допишите их сюда: [`${base}/banya.jpg`, `${base}/banya-2.jpg`, ...]
+        photos: [`${base}/banya.jpg`],
       },
     ],
   },
@@ -91,17 +96,17 @@ const categories = [
       {
         title: "Дыхательные практики и медитации",
         body: "Снятие тревожности, гармонизация нервной системы, улучшение сна.",
-        photo: `${base}/medit.jpg`,
+        photos: [`${base}/medit.jpg`],
       },
       {
         title: "Чайные церемонии",
         body: "Мягкое погружение в состояние «здесь и сейчас», антистресс-ритуал.",
-        photo: `${base}/tea.jpg`,
+        photos: [`${base}/tea.jpg`],
       },
       {
         title: "Прогулки по живописным местам",
         body: "Насыщение природной энергией, мягкое восстановление душевного баланса.",
-        photo: `${base}/progulki.jpg`,
+        photos: [`${base}/progulki.jpg`],
       },
     ],
   },
@@ -183,14 +188,35 @@ const categories = [
             >
               {cat.items.map((it) => (
                 <div class="bg-surface rounded-xl border border-outline/10 hover:shadow-xl transition-all overflow-hidden flex flex-col">
-                  {it.photo && (
-                    <img
-                      alt={it.title}
-                      class="w-full aspect-[4/3] object-cover"
-                      src={it.photo}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                  {it.photos && it.photos.length > 0 && (
+                    <button
+                      type="button"
+                      class="gallery-trigger group relative block w-full overflow-hidden bg-black/5"
+                      data-gallery={JSON.stringify(it.photos)}
+                      data-title={it.title}
+                      aria-label={`Открыть фото: ${it.title}`}
+                    >
+                      <img
+                        alt={it.title}
+                        class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        src={it.photos[0]}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/25 transition-colors">
+                        <span class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg">
+                          zoom_in
+                        </span>
+                      </span>
+                      {it.photos.length > 1 && (
+                        <span class="pointer-events-none absolute bottom-3 right-3 flex items-center gap-1 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
+                          <span class="material-symbols-outlined text-[14px] leading-none">
+                            photo_library
+                          </span>
+                          {it.photos.length}
+                        </span>
+                      )}
+                    </button>
                   )}
                   <div class="p-8">
                     <h4 class="font-headline-sm text-[18px] mb-3 text-on-surface">
@@ -215,3 +241,138 @@ const categories = [
     </p>
   </div>
 </section>
+
+<!-- Лайтбокс для галерей: единственный на страницу, живёт вне сетки -->
+<div
+  id="gallery-lightbox"
+  class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+>
+  <button
+    type="button"
+    class="lb-close absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition"
+    aria-label="Закрыть"
+  >
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <button
+    type="button"
+    class="lb-prev absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition hidden"
+    aria-label="Предыдущее фото"
+  >
+    <span class="material-symbols-outlined text-3xl">chevron_left</span>
+  </button>
+  <button
+    type="button"
+    class="lb-next absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition hidden"
+    aria-label="Следующее фото"
+  >
+    <span class="material-symbols-outlined text-3xl">chevron_right</span>
+  </button>
+  <figure class="max-w-6xl w-full flex flex-col items-center gap-4">
+    <img
+      class="lb-image max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
+      alt=""
+    />
+    <figcaption class="text-white/90 text-center flex flex-col items-center gap-1">
+      <span class="lb-title font-headline-sm text-lg"></span>
+      <span class="lb-counter font-mono text-xs uppercase tracking-widest text-white/60"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<script is:inline>
+  (() => {
+    const lb = document.getElementById("gallery-lightbox");
+    if (!lb) return;
+    const img = lb.querySelector(".lb-image");
+    const titleEl = lb.querySelector(".lb-title");
+    const counter = lb.querySelector(".lb-counter");
+    const btnClose = lb.querySelector(".lb-close");
+    const btnPrev = lb.querySelector(".lb-prev");
+    const btnNext = lb.querySelector(".lb-next");
+
+    let gallery = [];
+    let idx = 0;
+    let touchStartX = null;
+
+    const render = () => {
+      img.src = gallery[idx];
+      const many = gallery.length > 1;
+      btnPrev.classList.toggle("hidden", !many);
+      btnPrev.classList.toggle("flex", many);
+      btnNext.classList.toggle("hidden", !many);
+      btnNext.classList.toggle("flex", many);
+      counter.textContent = many ? `${idx + 1} / ${gallery.length}` : "";
+    };
+
+    const open = (photos, name, start = 0) => {
+      gallery = photos.slice();
+      idx = Math.max(0, Math.min(start, gallery.length - 1));
+      titleEl.textContent = name || "";
+      render();
+      lb.classList.remove("hidden");
+      lb.classList.add("flex");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    const close = () => {
+      lb.classList.add("hidden");
+      lb.classList.remove("flex");
+      lb.setAttribute("aria-hidden", "true");
+      img.removeAttribute("src");
+      document.body.style.overflow = "";
+    };
+
+    const next = () => {
+      if (gallery.length < 2) return;
+      idx = (idx + 1) % gallery.length;
+      render();
+    };
+
+    const prev = () => {
+      if (gallery.length < 2) return;
+      idx = (idx - 1 + gallery.length) % gallery.length;
+      render();
+    };
+
+    document.querySelectorAll(".gallery-trigger").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        try {
+          const photos = JSON.parse(btn.dataset.gallery || "[]");
+          if (photos.length) open(photos, btn.dataset.title || "");
+        } catch (e) {
+          /* ignore malformed data */
+        }
+      });
+    });
+
+    btnClose.addEventListener("click", close);
+    btnPrev.addEventListener("click", prev);
+    btnNext.addEventListener("click", next);
+    lb.addEventListener("click", (e) => {
+      if (e.target === lb) close();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (lb.classList.contains("hidden")) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") prev();
+    });
+
+    // Свайп на тачскринах
+    lb.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    lb.addEventListener("touchend", (e) => {
+      if (touchStartX === null) return;
+      const dx = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+      touchStartX = null;
+    }, { passive: true });
+  })();
+</script>
