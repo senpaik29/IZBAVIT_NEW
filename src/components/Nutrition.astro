@@ -6,17 +6,19 @@ const principles = [
     icon: "agriculture",
     title: "Фермерские продукты местного происхождения",
     body: "Всё свежее, выращенное и произведённое в нашем регионе без промышленных технологий, с сохранением природной пользы.",
-    photo: `${base}/produkty.png`,
+    photos: [`${base}/produkty.png`],
   },
   {
     icon: "eco",
     title: "Эко-продукция без химии и добавок",
     body: "Молоко, масло, мясо, овощи, фрукты, яйца — из хозяйств, где заботятся о земле и животных.",
+    photos: [`${base}/produkciya.jpg`],
   },
   {
     icon: "tune",
     title: "Сбалансированное меню под ваши задачи",
     body: "Мы не навязываем единую диету, а выстраиваем рацион под конкретного человека: его состояние, запрос, текущий телесный и эмоциональный фон.",
+    photos: [`${base}/menu.jpg`],
   },
 ];
 
@@ -76,14 +78,35 @@ const onTheTable = [
         {
           principles.map((p) => (
             <div class="reveal bg-surface-container rounded-2xl overflow-hidden flex flex-col">
-              {p.photo && (
-                <img
-                  alt={p.title}
-                  class="w-full aspect-[4/3] object-cover"
-                  src={p.photo}
-                  loading="lazy"
-                  decoding="async"
-                />
+              {p.photos && p.photos.length > 0 && (
+                <button
+                  type="button"
+                  class="gallery-trigger group relative block w-full overflow-hidden bg-black/5"
+                  data-gallery={JSON.stringify(p.photos)}
+                  data-title={p.title}
+                  aria-label={`Открыть фото: ${p.title}`}
+                >
+                  <img
+                    alt={p.title}
+                    class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    src={p.photos[0]}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/25 transition-colors">
+                    <span class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg">
+                      zoom_in
+                    </span>
+                  </span>
+                  {p.photos.length > 1 && (
+                    <span class="pointer-events-none absolute bottom-3 right-3 flex items-center gap-1 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
+                      <span class="material-symbols-outlined text-[14px] leading-none">
+                        photo_library
+                      </span>
+                      {p.photos.length}
+                    </span>
+                  )}
+                </button>
               )}
               <div class="p-8">
                 <span class="material-symbols-outlined text-primary text-3xl mb-4 block">
